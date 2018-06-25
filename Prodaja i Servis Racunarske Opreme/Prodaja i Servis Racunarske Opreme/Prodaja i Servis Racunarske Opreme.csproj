@@ -44,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -107,9 +113,30 @@
     <Compile Include="Areas\Resursi\ResursiAreaRegistration.cs" />
     <Compile Include="Areas\Transakcije\TransakcijeAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\MyContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Artikal.cs" />
+    <Compile Include="Models\Dobavljac.cs" />
+    <Compile Include="Models\EvidencijaDostave.cs" />
+    <Compile Include="Models\Grad.cs" />
+    <Compile Include="Models\GrupaProizvoda.cs" />
+    <Compile Include="Models\IzvrsenaUsluga.cs" />
+    <Compile Include="Models\JedinicaMjere.cs" />
+    <Compile Include="Models\Korisnik.cs" />
+    <Compile Include="Models\Narudzba.cs" />
+    <Compile Include="Models\NazivPlacanja.cs" />
+    <Compile Include="Models\Osoba.cs" />
+    <Compile Include="Models\Popust.cs" />
+    <Compile Include="Models\Proizvodjac.cs" />
+    <Compile Include="Models\Racun.cs" />
+    <Compile Include="Models\Skladiste.cs" />
+    <Compile Include="Models\Stavka.cs" />
+    <Compile Include="Models\StrucnaSprema.cs" />
+    <Compile Include="Models\TipDostave.cs" />
+    <Compile Include="Models\Usluga.cs" />
+    <Compile Include="Models\Zaposlenik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,7 +167,6 @@
     <Folder Include="Areas\Transakcije\Controllers\" />
     <Folder Include="Areas\Transakcije\Models\" />
     <Folder Include="Areas\Transakcije\Views\Shared\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
