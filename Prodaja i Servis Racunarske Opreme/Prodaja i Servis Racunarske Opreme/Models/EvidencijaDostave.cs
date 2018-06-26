@@ -9,5 +9,8 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Models
     {
         public int Id { get; set; }
         public DateTime DatumDostave { get; set; }
+
+        public virtual TipDostave TipDostave { get; set; }
+        public int TipDostaveId { get; set; }
     }
 }

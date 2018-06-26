@@ -15,7 +15,6 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.DAL
         public DbSet<EvidencijaDostave> EvidencijeDostve { get; set; }
         public DbSet<Grad> Gradovi { get; set; }
         public DbSet<GrupaProizvoda> GrupeProizvoda { get; set; }
-        public DbSet<IzvrsenaUsluga> IzvrseneUsluge { get; set; }
         public DbSet<JedinicaMjere> JediniceMjere { get; set; }
         public DbSet<Korisnik> Korisnici { get; set; }
         public DbSet<Narudzba> Narudzbe { get; set; }
@@ -41,6 +40,13 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.DAL
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Entity<Osoba>().HasOptional(x => x.Korisnik).WithRequired(x => x.Osoba);
             modelBuilder.Entity<Osoba>().HasOptional(x => x.Zaposlenik).WithRequired(x => x.Osoba);
+            modelBuilder.Entity<Racun>().HasMany(x => x.Usluge).WithMany(x => x.Racuni).Map(x =>
+              {
+                  x.MapLeftKey("RacunId");
+                  x.MapRightKey("UslugaId");
+                  x.ToTable("IzvrsenaUsluga");
+              });
+
         }
     }
 }

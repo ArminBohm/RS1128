@@ -17,7 +17,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Models
         public virtual GrupaProizvoda GrupaProizvoda { get; set; }
         public int GrupaProizvodaId { get; set; }
 
-        public virtual JediniceMjere JediniceMjere { get; set; }
+        public virtual JedinicaMjere JedinicaMjere { get; set; }
         public int JedinicaMjereId { get; set; }
 
     }

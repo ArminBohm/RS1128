@@ -23,6 +23,10 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Models
         public virtual EvidencijaDostave EvidencijaDostave { get; set; }
         public int? EvidencijaDostaveId { get; set; }
 
+        public List<Usluga> Usluge { get; set; }
+        
+
+
 
     }
 }
