@@ -10,5 +10,8 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Models
         public int Id { get; set; }
         public string Naziv { get; set; }
         public float Cijena { get; set; }
+
+        public List<Racun> Racuni { get; set; }
+
     }
 }
