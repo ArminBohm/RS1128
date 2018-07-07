@@ -15,8 +15,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
 
         public ActionResult Index()
         {
-
-            List<Racun> Racuni = CTX.Racuni.ToList();
+            //List<Racun> Racuni = CTX.Racuni.ToList();
             return View();
         }
     }

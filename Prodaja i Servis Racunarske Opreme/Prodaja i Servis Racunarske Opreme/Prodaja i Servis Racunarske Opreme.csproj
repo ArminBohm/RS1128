@@ -156,12 +156,21 @@
     <Content Include="Content\vendor\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="Content\vendor\jquery\jquery.min.map" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Areas\Transakcije\_ViewStart.cshtml" />
+    <Content Include="Areas\Resursi\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Resursi\Views\JedinicaMjere\Index.cshtml" />
+    <Content Include="Areas\Resursi\Views\JedinicaMjere\Dodavanje_JM.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -175,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Resursi\Controllers\JedinicaMjereController.cs" />
     <Compile Include="Areas\Resursi\ResursiAreaRegistration.cs" />
     <Compile Include="Areas\Transakcije\TransakcijeAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -241,9 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Resursi\Controllers\" />
     <Folder Include="Areas\Resursi\Models\" />
-    <Folder Include="Areas\Resursi\Views\Shared\" />
     <Folder Include="Areas\Transakcije\Controllers\" />
     <Folder Include="Areas\Transakcije\Models\" />
     <Folder Include="Areas\Transakcije\Views\Shared\" />
