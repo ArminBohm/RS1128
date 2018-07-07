@@ -1,0 +1,35 @@
+﻿@model List<Prodaja_i_Servis_Racunarske_Opreme.Models.JedinicaMjere>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Jedinice Mjere</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Naziv
+        </th>
+        <th>
+            Akcija
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Dodaj Novu Jed. Mjere", "Dodaj_JM")
+</p>

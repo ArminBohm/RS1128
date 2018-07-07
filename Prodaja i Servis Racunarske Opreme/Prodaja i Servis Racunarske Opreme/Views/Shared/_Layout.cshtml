@@ -1,5 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
+<style>
+
+    #First, #Second {
+        display: inline-block;
+    }
+    #Second {
+        position:absolute;
+        right:28px;
+        text-align:right;
+    }
+</style>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="/Resursi/JedinicaMjere/Index">Jedinice Mjere</a>
                 </li>
                 <li>
                     <a href="#">Shortcuts</a>
@@ -47,11 +60,15 @@
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="container-fluid">
-
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
-                @RenderBody()
+            <div class="container-fluid" style="background-color:black">
+                <div id="First" >
+                    <a href="#menu-toggle" style="color:red; " id="menu-toggle">Toggle Menu</a>
+                </div>
+                <div id="Second" >
+                    <label style="color:red">Created by Armin Böhm</label>
+                </div>
             </div>
+            @RenderBody()
         </div>
         <!-- /#page-content-wrapper -->
     </div>
