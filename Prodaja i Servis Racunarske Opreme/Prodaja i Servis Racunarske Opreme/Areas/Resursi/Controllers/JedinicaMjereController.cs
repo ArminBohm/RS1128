@@ -45,5 +45,32 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edituj_JM(int id)
+        {
+            JedinicaMjere Model = CTX.JediniceMjere.Where(x => x.Id == id).FirstOrDefault();
+
+            return View("Edituj_JM", Model);
+        }
+
+        public ActionResult SpasiIzmjenu_JM (JedinicaMjere Podaci)
+        {
+            JedinicaMjere Izmjenuti = CTX.JediniceMjere.Where(x => x.Id == Podaci.Id).FirstOrDefault();
+            Izmjenuti.Naziv = Podaci.Naziv;
+
+            CTX.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Brisanje_JM (int id)
+        {
+
+            CTX.JediniceMjere.Remove(CTX.JediniceMjere.Where(x => x.Id == id).FirstOrDefault());
+
+            CTX.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,15 +1,16 @@
-﻿@model Prodaja_i_Servis_Racunarske_Opreme.Models.JedinicaMjere
+﻿@model Prodaja_i_Servis_Racunarske_Opreme.Models.Proizvodjac
 
 @{
-    ViewBag.Title = "Dodavanje_JM";
+    ViewBag.Title = "Dodavanje_P";
 }
 
-@using (Html.BeginForm("Spasi_JM","JedinicaMjere")) 
+
+@using (Html.BeginForm("Spasi_P","Proizvodjac")) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>JedinicaMjere</h4>
+        <h4>Proizvodjac</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -22,7 +23,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>

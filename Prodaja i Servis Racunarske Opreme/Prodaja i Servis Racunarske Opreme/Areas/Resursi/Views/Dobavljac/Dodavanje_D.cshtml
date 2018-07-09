@@ -1,17 +1,20 @@
-﻿@model Prodaja_i_Servis_Racunarske_Opreme.Models.JedinicaMjere
+﻿@model Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models.DobavljacVM
 
 @{
-    ViewBag.Title = "Dodavanje_JM";
+    ViewBag.Title = "Dodavanje_D";
 }
 
-@using (Html.BeginForm("Spasi_JM","JedinicaMjere")) 
+<h2>Dodavanje_D</h2>
+
+
+@using (Html.BeginForm("Spasi_D","Dobavljac")) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>JedinicaMjere</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model=> Model.IdDobavljaca)
+
         <div class="form-group">
             @Html.LabelFor(model => model.Naziv, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -21,8 +24,16 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.GradId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.GradId,Model.DDLG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GradId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
