@@ -160,6 +160,24 @@
     <Content Include="Areas\Resursi\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Resursi\Views\JedinicaMjere\Index.cshtml" />
     <Content Include="Areas\Resursi\Views\JedinicaMjere\Dodavanje_JM.cshtml" />
+    <Content Include="Areas\Resursi\Views\JedinicaMjere\Edituj_JM.cshtml" />
+    <Content Include="Areas\Resursi\Views\GrupaProizvoda\Index.cshtml" />
+    <Content Include="Areas\Resursi\Views\GrupaProizvoda\Dodavanje_GP.cshtml" />
+    <Content Include="Areas\Resursi\Views\GrupaProizvoda\Edituj_GP.cshtml" />
+    <Content Include="Areas\Resursi\Views\Proizvodjac\Index.cshtml" />
+    <Content Include="Areas\Resursi\Views\Proizvodjac\Dodavanje_P.cshtml" />
+    <Content Include="Areas\Resursi\Views\Proizvodjac\Edituj_P.cshtml" />
+    <Content Include="Areas\Resursi\Views\Grad\Index.cshtml" />
+    <Content Include="Areas\Resursi\Views\Grad\Dodavanje_G.cshtml" />
+    <Content Include="Areas\Resursi\Views\Grad\Edituj_G.cshtml" />
+    <Content Include="Areas\Resursi\Views\StrucnaSprema\Index.cshtml" />
+    <Content Include="Areas\Resursi\Views\StrucnaSprema\Dodavanje_SP.cshtml" />
+    <Content Include="Areas\Resursi\Views\StrucnaSprema\Edituj_SP.cshtml" />
+    <Content Include="Areas\Resursi\Views\Zaduzenje\Index.cshtml" />
+    <Content Include="Areas\Resursi\Views\Zaduzenje\Dodavanje_Z.cshtml" />
+    <Content Include="Areas\Resursi\Views\Zaduzenje\Edituj_Z.cshtml" />
+    <Content Include="Areas\Resursi\Views\Dobavljac\Index.cshtml" />
+    <Content Include="Areas\Resursi\Views\Dobavljac\Dodavanje_D.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -184,7 +202,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Resursi\Controllers\DobavljacController.cs" />
+    <Compile Include="Areas\Resursi\Controllers\GradController.cs" />
+    <Compile Include="Areas\Resursi\Controllers\GrupaProizvodaController.cs" />
     <Compile Include="Areas\Resursi\Controllers\JedinicaMjereController.cs" />
+    <Compile Include="Areas\Resursi\Controllers\ProizvodjacController.cs" />
+    <Compile Include="Areas\Resursi\Controllers\StrucnaSpremaController.cs" />
+    <Compile Include="Areas\Resursi\Controllers\ZaduzenjeController.cs" />
+    <Compile Include="Areas\Resursi\Models\DobavljacVM.cs" />
     <Compile Include="Areas\Resursi\ResursiAreaRegistration.cs" />
     <Compile Include="Areas\Transakcije\TransakcijeAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -199,6 +224,14 @@
     <Compile Include="Migrations\201806262214169_MiG28.cs" />
     <Compile Include="Migrations\201806262214169_MiG28.Designer.cs">
       <DependentUpon>201806262214169_MiG28.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807091947413_MiG29.cs" />
+    <Compile Include="Migrations\201807091947413_MiG29.Designer.cs">
+      <DependentUpon>201807091947413_MiG29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807092035489_MiG31.cs" />
+    <Compile Include="Migrations\201807092035489_MiG31.Designer.cs">
+      <DependentUpon>201807092035489_MiG31.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artikal.cs" />
@@ -219,6 +252,7 @@
     <Compile Include="Models\StrucnaSprema.cs" />
     <Compile Include="Models\TipDostave.cs" />
     <Compile Include="Models\Usluga.cs" />
+    <Compile Include="Models\Zaduzenje.cs" />
     <Compile Include="Models\Zaposlenik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -251,7 +285,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Resursi\Models\" />
     <Folder Include="Areas\Transakcije\Controllers\" />
     <Folder Include="Areas\Transakcije\Models\" />
     <Folder Include="Areas\Transakcije\Views\Shared\" />
@@ -262,6 +295,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806262214169_MiG28.resx">
       <DependentUpon>201806262214169_MiG28.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091947413_MiG29.resx">
+      <DependentUpon>201807091947413_MiG29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807092035489_MiG31.resx">
+      <DependentUpon>201807092035489_MiG31.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

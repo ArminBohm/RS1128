@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models.DobavljacVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            Grad
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NazivGrada)
+            </td>
+            <td>
+                @Html.ActionLink("Edituj", "Edituj_D", new { id = item.IdDobavljaca }) |
+                @Html.ActionLink("Brisanje", "Brisanje_D", new { id = item.IdDobavljaca })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Novi Dobavljac", "Dodaj_D")
+</p>

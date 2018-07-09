@@ -15,5 +15,8 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Models
         public int StrucnaSpremaId { get; set; }
 
         public Osoba Osoba { get; set; }
+
+        public virtual Zaduzenje Zaduzenje { get; set; }
+        public int ZaduzenjeId { get; set; }
     }
 }

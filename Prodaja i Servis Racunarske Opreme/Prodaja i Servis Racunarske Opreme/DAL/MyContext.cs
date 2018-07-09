@@ -29,6 +29,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.DAL
         public DbSet<TipDostave> TipoviDostava { get; set; }
         public DbSet<Usluga> Usluge { get; set; }
         public DbSet<Zaposlenik> Zaposlenici { get; set; }
+        public DbSet<Zaduzenje> Zaduzenja { get; set; }
 
 
 

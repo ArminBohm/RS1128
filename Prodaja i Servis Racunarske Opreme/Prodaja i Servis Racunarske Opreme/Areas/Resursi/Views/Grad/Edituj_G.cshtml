@@ -1,17 +1,19 @@
-﻿@model Prodaja_i_Servis_Racunarske_Opreme.Models.JedinicaMjere
+﻿@model Prodaja_i_Servis_Racunarske_Opreme.Models.Grad
 
 @{
-    ViewBag.Title = "Dodavanje_JM";
+    ViewBag.Title = "Edituj_G";
 }
 
-@using (Html.BeginForm("Spasi_JM","JedinicaMjere")) 
+@using (Html.BeginForm("SpasiIzmjenu_G","Grad"))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>JedinicaMjere</h4>
+        <h4>Grad</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
         <div class="form-group">
             @Html.LabelFor(model => model.Naziv, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -22,7 +24,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

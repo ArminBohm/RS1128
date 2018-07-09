@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Prodaja_i_Servis_Racunarske_Opreme.Models.Proizvodjac>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Proizvodjaci</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.ActionLink("Edituj", "Edituj_P", new { id=item.Id }) |
+            @Html.ActionLink("Brisanje", "Brisanje_P", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Novi Proizvodjac", "Dodaj_P")
+</p>
