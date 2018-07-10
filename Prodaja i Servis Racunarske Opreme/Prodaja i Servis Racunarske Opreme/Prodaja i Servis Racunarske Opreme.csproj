@@ -178,6 +178,10 @@
     <Content Include="Areas\Resursi\Views\Zaduzenje\Edituj_Z.cshtml" />
     <Content Include="Areas\Resursi\Views\Dobavljac\Index.cshtml" />
     <Content Include="Areas\Resursi\Views\Dobavljac\Dodavanje_D.cshtml" />
+    <Content Include="Areas\Resursi\Views\Dobavljac\Edituj_D.cshtml" />
+    <Content Include="Areas\Resursi\Views\Artikal\Index.cshtml" />
+    <Content Include="Areas\Resursi\Views\Artikal\Dodavanje_A.cshtml" />
+    <Content Include="Areas\Resursi\Views\Artikal\Edituj_A.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -202,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Resursi\Controllers\ArtikalController.cs" />
     <Compile Include="Areas\Resursi\Controllers\DobavljacController.cs" />
     <Compile Include="Areas\Resursi\Controllers\GradController.cs" />
     <Compile Include="Areas\Resursi\Controllers\GrupaProizvodaController.cs" />
@@ -209,6 +214,7 @@
     <Compile Include="Areas\Resursi\Controllers\ProizvodjacController.cs" />
     <Compile Include="Areas\Resursi\Controllers\StrucnaSpremaController.cs" />
     <Compile Include="Areas\Resursi\Controllers\ZaduzenjeController.cs" />
+    <Compile Include="Areas\Resursi\Models\ArtikalVM.cs" />
     <Compile Include="Areas\Resursi\Models\DobavljacVM.cs" />
     <Compile Include="Areas\Resursi\ResursiAreaRegistration.cs" />
     <Compile Include="Areas\Transakcije\TransakcijeAreaRegistration.cs" />
