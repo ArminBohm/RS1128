@@ -25,8 +25,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 IdDobavljaca = x.Id,
                 Naziv = x.Naziv
             }));
-
-            
+    
             return View(Model);
         }
 
@@ -65,6 +64,8 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         {
             DobavljacVM Model = new DobavljacVM();
             Dobavljac Podaci = CTX.Dobavljaci.Where(x => x.Id == id).FirstOrDefault();
+
+            Model.Lgradovi = CTX.Gradovi.ToList();
 
             Model.GradId = Podaci.GradId;
             Model.IdDobavljaca = Podaci.Id;
