@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models.KorisnikVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Ime
+        </th>
+        <th>
+        Prezime
+        </th>
+        <th>
+        UserName
+        </th>
+        <th>
+        Password
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Akcija
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Eituj", "Edituj_K", new { id = item.id }) |
+                @Html.ActionLink("Brisanje", "Brisanje_K", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Novi Korisnik", "Dodaj_K")
+</p>
