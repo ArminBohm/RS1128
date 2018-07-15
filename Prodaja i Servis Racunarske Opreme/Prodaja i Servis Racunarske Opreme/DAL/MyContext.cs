@@ -49,5 +49,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.DAL
               });
 
         }
+
+        public System.Data.Entity.DbSet<Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models.KorisnikVM> KorisnikVMs { get; set; }
     }
 }
