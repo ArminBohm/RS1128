@@ -69,11 +69,12 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 Novi.Osoba.Ime = Nova_K.Ime;
                 Novi.Osoba.Prezime = Nova_K.Prezime;
                 Novi.Osoba.Spol = Nova_K.Spol;
-                //Novi.Osoba.Grad.Naziv = Nova_K.NazivGrada;
                 Novi.Osoba.GradId = Nova_K.GradId;
                 Novi.Osoba.UserName = Nova_K.UserName;
                 Novi.Osoba.Password = Nova_K.Password;
-
+                Novi.Osoba.Adresa = Nova_K.Adresa;
+                Novi.Osoba.BrojTelefona = Nova_K.BrojTelefona;
+                Novi.Osoba.Email = Nova_K.Email;
 
 
                 CTX.Korisnici.Add(Novi);
@@ -84,44 +85,53 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Edituj_A(int id)
+        public ActionResult Edituj_K(int id)
         {
-            ArtikalVM Model = new ArtikalVM();
-            Artikal Podaci = CTX.Artikli.Where(x => x.Id == id).FirstOrDefault();
+            KorisnikVM Model = new KorisnikVM();
+            Korisnik Podaci = CTX.Korisnici.Where(x => x.Id == id).Include(x=> x.Osoba).FirstOrDefault();
 
-            Model.LGP = CTX.GrupeProizvoda.ToList();
-            Model.LJM = CTX.JediniceMjere.ToList();
-            Model.LPro = CTX.Proizvodjaci.ToList();
+            Model.LGrad = CTX.Gradovi.ToList();
 
 
+            Model.Ime = Podaci.Osoba.Ime;
+            Model.Prezime = Podaci.Osoba.Prezime;
+            Model.Spol = Podaci.Osoba.Spol;
+            Model.Adresa = Podaci.Osoba.Adresa;
+            Model.BrojTelefona = Podaci.Osoba.BrojTelefona;
+            Model.DatumRegistracije = Podaci.DatumRegistracije;
+            Model.Email = Podaci.Osoba.Email;
+            Model.GradId = Podaci.Osoba.GradId;
+            Model.Password = Podaci.Osoba.Password;
+            Model.UserName = Podaci.Osoba.UserName;
 
-            Model.LJMId = Podaci.JedinicaMjereId;
-            Model.ProId = Podaci.ProizvodjacId;
-            Model.GPId = Podaci.GrupaProizvodaId;
-            Model.Naziv = Podaci.Naziv;
-            Model.Cijena = Podaci.Cijena;
-            Model.IdArtikla = Podaci.Id;
-            return View("Edituj_A", Model);
+
+
+            return View("Edituj_K", Model);
         }
 
-        public ActionResult SpasiIzmjenu_A(ArtikalVM Podaci)
+        public ActionResult SpasiIzmjenu_K(KorisnikVM Podaci)
         {
-            Artikal Izmjenuti = CTX.Artikli.Where(x => x.Id == Podaci.IdArtikla).FirstOrDefault();
-            Izmjenuti.Naziv = Podaci.Naziv;
-            Izmjenuti.Cijena = Podaci.Cijena;
-            Izmjenuti.GrupaProizvodaId = Podaci.GPId;
-            Izmjenuti.JedinicaMjereId = Podaci.LJMId;
-            Izmjenuti.ProizvodjacId = Podaci.ProId;
+            Korisnik Izmjenuti = CTX.Korisnici.Where(x => x.Id == Podaci.id).Include(x=> x.Osoba).FirstOrDefault();
+            Izmjenuti.Osoba.Ime = Podaci.Ime;
+            Izmjenuti.Osoba.Prezime = Podaci.Prezime;
+            Izmjenuti.Osoba.Spol = Podaci.Spol;
+            Izmjenuti.Osoba.Adresa = Podaci.Adresa;
+            Izmjenuti.Osoba.BrojTelefona = Podaci.BrojTelefona;
+            Izmjenuti.DatumRegistracije = Podaci.DatumRegistracije;
+            Izmjenuti.Osoba.Email = Podaci.Email;
+            Izmjenuti.Osoba.GradId = Podaci.GradId;
+            Izmjenuti.Osoba.Password = Podaci.Password;
+            Izmjenuti.Osoba.UserName = Podaci.UserName;
 
             CTX.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-        public ActionResult Brisanje_A(int id)
+        public ActionResult Brisanje_K(int id)
         {
-
-            CTX.Artikli.Remove(CTX.Artikli.Where(x => x.Id == id).FirstOrDefault());
+            CTX.Osobe.Remove(CTX.Osobe.Where(x => x.Id == id).FirstOrDefault());
+            CTX.Korisnici.Remove(CTX.Korisnici.Where(x => x.Id == id).FirstOrDefault());
 
             CTX.SaveChanges();
 
