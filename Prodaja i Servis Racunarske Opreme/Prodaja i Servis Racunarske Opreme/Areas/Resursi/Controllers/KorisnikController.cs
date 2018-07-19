@@ -103,6 +103,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             Model.GradId = Podaci.Osoba.GradId;
             Model.Password = Podaci.Osoba.Password;
             Model.UserName = Podaci.Osoba.UserName;
+            Model.Status = Podaci.Status;
 
 
 
@@ -122,6 +123,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             Izmjenuti.Osoba.GradId = Podaci.GradId;
             Izmjenuti.Osoba.Password = Podaci.Password;
             Izmjenuti.Osoba.UserName = Podaci.UserName;
+            Izmjenuti.Status = Podaci.Status;
 
             CTX.SaveChanges();
 
