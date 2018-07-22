@@ -68,7 +68,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         public ActionResult Edituj_A(int id)
         {
             ArtikalVM Model = new ArtikalVM();

@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models.ArtikalVM>
-
+@using Prodaja_i_Servis_Racunarske_Opreme.Helper
 @{
     ViewBag.Title = "Index";
 }
@@ -29,29 +29,35 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Naziv)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cijena)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JedMjere)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proizvodjac)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GrupaProizvoda)
-        </td>
-        <td>
-            @Html.ActionLink("Eituj", "Edituj_A", new {  id=item.IdArtikla  }) |
-            @Html.ActionLink("Brisanje", "Brisanje_A", new { id = item.IdArtikla })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JedMjere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proizvodjac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrupaProizvoda)
+            </td>
+            <td>
+                @if (MyGlobal.Loged_Z.ZaduzenjeId == 1)
+                {
+                <div>
+                    @Html.ActionLink("Eituj", "Edituj_A", new { id = item.IdArtikla }) |
+                    @Html.ActionLink("Brisanje", "Brisanje_A", new { id = item.IdArtikla })
+                </div>
+                }
+            </td>
+        </tr>
+    }
 
 </table>
 <p>

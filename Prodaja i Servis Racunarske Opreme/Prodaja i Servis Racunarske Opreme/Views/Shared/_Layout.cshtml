@@ -1,15 +1,27 @@
-﻿<!DOCTYPE html>
+﻿@using Prodaja_i_Servis_Racunarske_Opreme.Helper
+@{ 
+
+    var User = (Session["Logirani"] as LogiraniSes).Ime_Prezime;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <style>
 
-    #First, #Second {
+    #First, #Second, #Third {
         display: inline-block;
     }
+
     #Second {
-        position:absolute;
-        right:28px;
-        text-align:right;
+        position: absolute;
+        right: 28px;
+        text-align: right;
+    }
+
+    #Third {
+        position: absolute;
+        text-align: center;
     }
 </style>
 
@@ -70,11 +82,11 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid" style="background-color:black">
-                <div id="First" >
-                    <a href="#menu-toggle" style="color:red; " id="menu-toggle">Toggle Menu</a>
+                <div id="First">
+                    <a href="#menu-toggle" style="color:white; " id="menu-toggle">Toggle Menu</a>
                 </div>
-                <div id="Second" >
-                    <label style="color:red">Created by Armin Böhm</label>
+                <div id="Second">
+                    <label style="color:white; text-align:center">Loged:@User </label>
                 </div>
             </div>
             @RenderBody()
@@ -85,6 +97,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="~/Content/vendor/jquery/jquery.min.js"></script>
     <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <!-- Menu Toggle Script -->
     <script>
         $("#menu-toggle").click(function (e) {
