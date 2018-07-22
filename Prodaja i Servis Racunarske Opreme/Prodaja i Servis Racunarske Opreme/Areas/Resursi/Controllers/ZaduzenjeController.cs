@@ -1,4 +1,5 @@
 ﻿using Prodaja_i_Servis_Racunarske_Opreme.DAL;
+using Prodaja_i_Servis_Racunarske_Opreme.Helper;
 using Prodaja_i_Servis_Racunarske_Opreme.Models;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 {
+    [Pristup(Ovlasti = "Administrator")]
     public class ZaduzenjeController : Controller
     {
         // GET: Resursi/Zaduzenje
@@ -16,7 +18,6 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Index()
         {
             List<Zaduzenje> Model = CTX.Zaduzenja.ToList();
-
             return View(Model);
         }
 

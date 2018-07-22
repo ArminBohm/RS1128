@@ -10,8 +10,8 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Helper
     
     public static class MyGlobal
     {
-        public static Korisnik Loged_K { get; set; }
-        public static Zaposlenik Loged_Z { get; set; }
+        //public static Korisnik Loged_K { get; set; }
+        //public static Zaposlenik Loged_Z { get; set; }
 
 
     }

@@ -7,9 +7,11 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
+using Prodaja_i_Servis_Racunarske_Opreme.Helper;
 
 namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 {
+    [Pristup(Ovlasti = "Administrator")]
     public class ZaposlenikController : Controller
     {
         // GET: Resursi/Korisnik
@@ -61,7 +63,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Spasi_Z(ZaposlenikVM Nova_Z)
         {
             bool Pronadjeno = false;
-            foreach (Zaposlenik Z in CTX.Zaposlenici)
+            foreach (Zaposlenik Z in CTX.Zaposlenici.Include(x => x.Osoba))
             {
                 if (Z.Osoba.UserName == Nova_Z.UserName)
                 {

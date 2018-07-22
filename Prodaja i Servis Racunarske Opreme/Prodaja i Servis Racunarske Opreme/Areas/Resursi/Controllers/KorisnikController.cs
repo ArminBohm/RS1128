@@ -7,9 +7,11 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
+using Prodaja_i_Servis_Racunarske_Opreme.Helper;
 
 namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 {
+    [Pristup(Ovlasti ="Administrator")]
     public class KorisnikController : Controller
     {
         // GET: Resursi/Korisnik
