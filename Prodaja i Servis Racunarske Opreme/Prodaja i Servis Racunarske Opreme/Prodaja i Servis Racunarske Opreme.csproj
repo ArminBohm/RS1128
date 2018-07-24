@@ -228,10 +228,10 @@
     <Compile Include="Areas\Resursi\Controllers\ProizvodjacController.cs" />
     <Compile Include="Areas\Resursi\Controllers\StrucnaSpremaController.cs" />
     <Compile Include="Areas\Resursi\Controllers\ZaduzenjeController.cs" />
-    <Compile Include="Areas\Resursi\Controllers\Models\ArtikalVM.cs" />
-    <Compile Include="Areas\Resursi\Controllers\Models\DobavljacVM.cs" />
-    <Compile Include="Areas\Resursi\Controllers\Models\ZaposlenikVM.cs" />
-    <Compile Include="Areas\Resursi\Controllers\Models\KorisnikVM.cs" />
+    <Compile Include="Areas\Resursi\Models\ArtikalVM.cs" />
+    <Compile Include="Areas\Resursi\Models\DobavljacVM.cs" />
+    <Compile Include="Areas\Resursi\Models\ZaposlenikVM.cs" />
+    <Compile Include="Areas\Resursi\Models\KorisnikVM.cs" />
     <Compile Include="Areas\Resursi\ResursiAreaRegistration.cs" />
     <Compile Include="Areas\Transakcije\TransakcijeAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
