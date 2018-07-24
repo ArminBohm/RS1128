@@ -1,5 +1,6 @@
 ﻿using Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models;
 using Prodaja_i_Servis_Racunarske_Opreme.DAL;
+using Prodaja_i_Servis_Racunarske_Opreme.Helper;
 using Prodaja_i_Servis_Racunarske_Opreme.Models;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
     {
         // GET: Resursi/Dobavljac
         MyContext CTX = new MyContext();
-
+        [Pristup(Ovlasti = "Administrator,Prodavac,Servise")]
         public ActionResult Index()
         {
             List<DobavljacVM> Model = new List<DobavljacVM>();
@@ -28,7 +29,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
     
             return View(Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Dodaj_D()
         {
             DobavljacVM Model = new DobavljacVM();
@@ -36,7 +37,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return View("Dodavanje_D", Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Spasi_D(DobavljacVM Nova_D)
         {
             bool Pronadjeno = false;
@@ -59,7 +60,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_D(int id)
         {
             DobavljacVM Model = new DobavljacVM();
@@ -73,7 +74,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return View("Edituj_D", Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult SpasiIzmjenu_D(DobavljacVM Podaci)
         {
             Dobavljac Izmjenuti = CTX.Dobavljaci.Where(x => x.Id == Podaci.IdDobavljaca).FirstOrDefault();
@@ -83,7 +84,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_D(int id)
         {
 

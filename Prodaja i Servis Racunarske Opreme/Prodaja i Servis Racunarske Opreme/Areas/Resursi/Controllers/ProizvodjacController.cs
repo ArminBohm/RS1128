@@ -1,4 +1,5 @@
 ﻿using Prodaja_i_Servis_Racunarske_Opreme.DAL;
+using Prodaja_i_Servis_Racunarske_Opreme.Helper;
 using Prodaja_i_Servis_Racunarske_Opreme.Models;
 using System;
 using System.Collections.Generic;
@@ -12,21 +13,21 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
     {
         // GET: Resursi/Proizvodjac
         MyContext CTX = new MyContext();
-
+        [Pristup(Ovlasti = "Administrator,Prodavac,Serviser")]
         public ActionResult Index()
         {
             List<Proizvodjac> Model = CTX.Proizvodjaci.ToList();
 
             return View(Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Dodaj_P()
         {
             Proizvodjac Model = new Proizvodjac();
 
             return View("Dodavanje_P", Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Spasi_P(Proizvodjac Nova_P)
         {
             bool Pronadjeno = false;
@@ -46,14 +47,14 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_P(int id)
         {
             Proizvodjac Model = CTX.Proizvodjaci.Where(x => x.Id == id).FirstOrDefault();
 
             return View("Edituj_P", Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult SpasiIzmjenu_P(Proizvodjac Podaci)
         {
             Proizvodjac Izmjenuti = CTX.Proizvodjaci.Where(x => x.Id == Podaci.Id).FirstOrDefault();
@@ -63,7 +64,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_P(int id)
         {
 

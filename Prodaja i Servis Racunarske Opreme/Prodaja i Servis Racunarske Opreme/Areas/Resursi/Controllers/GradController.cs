@@ -1,4 +1,5 @@
 ﻿using Prodaja_i_Servis_Racunarske_Opreme.DAL;
+using Prodaja_i_Servis_Racunarske_Opreme.Helper;
 using Prodaja_i_Servis_Racunarske_Opreme.Models;
 using System;
 using System.Collections.Generic;
@@ -8,25 +9,26 @@ using System.Web.Mvc;
 
 namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 {
+
     public class GradController : Controller
     {
         // GET: Resursi/Grad
         MyContext CTX = new MyContext();
-
+        [Pristup(Ovlasti = "Administrator,Prodavac,Serviser")]
         public ActionResult Index()
         {
             List<Grad> Model = CTX.Gradovi.ToList();
 
             return View(Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Dodaj_G()
         {
             Grad Model = new Grad();
 
             return View("Dodavanje_G", Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Spasi_G(Grad Nova_G)
         {
             bool Pronadjeno = false;
@@ -46,14 +48,14 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_G(int id)
         {
             Grad Model = CTX.Gradovi.Where(x => x.Id == id).FirstOrDefault();
 
             return View("Edituj_G", Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult SpasiIzmjenu_G(Grad Podaci)
         {
             Grad Izmjenuti = CTX.Gradovi.Where(x => x.Id == Podaci.Id).FirstOrDefault();
@@ -63,7 +65,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_G(int id)
         {
 
