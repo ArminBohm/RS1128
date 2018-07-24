@@ -1,14 +1,10 @@
 ﻿@using Prodaja_i_Servis_Racunarske_Opreme.Helper
-@{ 
-
+@{
     var User = (Session["Logirani"] as LogiraniSes).Ime_Prezime;
 }
-
 <!DOCTYPE html>
-<html lang="en">
 
 <style>
-
     #First, #Second, #Third {
         display: inline-block;
     }
@@ -25,6 +21,7 @@
     }
 </style>
 
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -94,16 +91,17 @@
         <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
 </body>
 </html>
+
+<!-- Bootstrap core JavaScript -->
+<script src="~/Content/vendor/jquery/jquery.min.js"></script>
+<script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>

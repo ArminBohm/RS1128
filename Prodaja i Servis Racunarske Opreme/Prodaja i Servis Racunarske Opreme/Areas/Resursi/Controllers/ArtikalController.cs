@@ -1,5 +1,6 @@
 ﻿using Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models;
 using Prodaja_i_Servis_Racunarske_Opreme.DAL;
+using Prodaja_i_Servis_Racunarske_Opreme.Helper;
 using Prodaja_i_Servis_Racunarske_Opreme.Models;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
     {
         // GET: Resursi/Artikal
         MyContext CTX = new MyContext();
-
+        [Pristup(Ovlasti = "Administrator,Prodavac,Serviser")]
         public ActionResult Index()
         {
             List<ArtikalVM> Model = new List<ArtikalVM>();
@@ -32,7 +33,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return View(Model);
         }
-
+        [Pristup(Ovlasti = "Administrator,Prodavac")]
         public ActionResult Dodaj_A()
         {
             ArtikalVM Model = new ArtikalVM();
@@ -42,7 +43,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return View("Dodavanje_A", Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Spasi_A(ArtikalVM Nova_A)
         {
             bool Pronadjeno = false;
@@ -68,7 +69,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-        [Authorize]
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_A(int id)
         {
             ArtikalVM Model = new ArtikalVM();
@@ -88,7 +89,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             Model.IdArtikla = Podaci.Id;
             return View("Edituj_A", Model);
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult SpasiIzmjenu_A(ArtikalVM Podaci)
         {
             Artikal Izmjenuti = CTX.Artikli.Where(x => x.Id == Podaci.IdArtikla).FirstOrDefault();
@@ -102,7 +103,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_A(int id)
         {
 
