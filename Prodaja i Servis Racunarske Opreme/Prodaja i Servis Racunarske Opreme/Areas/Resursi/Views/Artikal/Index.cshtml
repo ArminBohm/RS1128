@@ -48,13 +48,8 @@
                 @Html.DisplayFor(modelItem => item.GrupaProizvoda)
             </td>
             <td>
-                @if (MyGlobal.Loged_Z.ZaduzenjeId == 1)
-                {
-                <div>
                     @Html.ActionLink("Eituj", "Edituj_A", new { id = item.IdArtikla }) |
                     @Html.ActionLink("Brisanje", "Brisanje_A", new { id = item.IdArtikla })
-                </div>
-                }
             </td>
         </tr>
     }
