@@ -4,27 +4,38 @@
     ViewBag.Title = "Dodavanje_JM";
 }
 
-@using (Html.BeginForm("Spasi_JM","JedinicaMjere")) 
+@using (Html.BeginForm("Spasi_JM", "JedinicaMjere"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>JedinicaMjere</h4>
+        <h2 style="text-align:center">Dodavanje Jedinica Mjere</h2>
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Naziv, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Naziv, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Naziv, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <table align="center" style="outline:dotted; outline-color:green">
+            <tr>
+                <td>
+                    <div class="form-group" align="center">
+                       Naziv
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Naziv, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Naziv, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="height:100px">
+                <td colspan="3" align="right" style="padding:48px 0px 0px 0px">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Spasi" class="btn btn-success" style="width:125px" />
+                        </div>
+                    </div>
+                </td>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
-            </div>
-        </div>
+            </tr>
+        </table>
     </div>
 }
 
