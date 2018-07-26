@@ -51,6 +51,8 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_G(int id)
         {
+
+
             Grad Model = CTX.Gradovi.Where(x => x.Id == id).FirstOrDefault();
 
             return View("Edituj_G", Model);
@@ -58,6 +60,25 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult SpasiIzmjenu_G(Grad Podaci)
         {
+
+            //Grad Gr = CTX.Gradovi
+            //    .Where(x => x.Naziv == Podaci.Naziv)
+            //    .Where(x => x.Id != Podaci.Id)
+            //    .FirstOrDefault();
+            //if(Gr != null)
+            //{
+            //    return RedirectToAction("Index");
+            //}
+
+            foreach (Grad G in CTX.Gradovi)
+            {
+                if (G.Naziv == Podaci.Naziv && G.Id != Podaci.Id)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+
             Grad Izmjenuti = CTX.Gradovi.Where(x => x.Id == Podaci.Id).FirstOrDefault();
             Izmjenuti.Naziv = Podaci.Naziv;
 
