@@ -77,12 +77,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return View("NullAjaxView");
-        }
-
-        public ActionResult StopAjax()
-        {
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
 
         [Pristup(Ovlasti = "Administrator")]
