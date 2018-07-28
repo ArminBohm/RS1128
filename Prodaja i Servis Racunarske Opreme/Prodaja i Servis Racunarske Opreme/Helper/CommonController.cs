@@ -16,5 +16,6 @@ namespace RS1_110.Helper
             ViewData["Sadrzaj"] = "~/Views/Common/AutErrView.cshtml";
             return View("PopUpModal");
         }
+
     }
 }
