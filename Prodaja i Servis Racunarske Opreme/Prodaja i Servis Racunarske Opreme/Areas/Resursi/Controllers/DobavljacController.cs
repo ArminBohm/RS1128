@@ -48,7 +48,11 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                     Pronadjeno = true;
                 }
             }
-
+            if (!ModelState.IsValid)
+            {
+                Nova_D.Lgradovi = CTX.Gradovi.ToList();
+                return View("Dodavanje_D", Nova_D);
+            }
             if (Pronadjeno == false)
             {
                 Dobavljac Novi = new Dobavljac();
@@ -77,6 +81,12 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult SpasiIzmjenu_D(DobavljacVM Podaci)
         {
+            if (!ModelState.IsValid)
+            {
+                Podaci.Lgradovi = CTX.Gradovi.ToList();
+                return View("Dodavanje_D", Podaci);
+            }
+
             Dobavljac Izmjenuti = CTX.Dobavljaci.Where(x => x.Id == Podaci.IdDobavljaca).FirstOrDefault();
             Izmjenuti.Naziv = Podaci.Naziv;
             Izmjenuti.GradId = Podaci.GradId;
