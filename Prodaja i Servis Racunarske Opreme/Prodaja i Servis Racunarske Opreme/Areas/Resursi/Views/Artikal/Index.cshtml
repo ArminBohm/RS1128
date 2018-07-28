@@ -58,3 +58,8 @@
 <p>
     @Html.ActionLink("Novi Artikal", "Dodaj_A")
 </p>
+<p>
+    @Ajax.ActionLink("Novi Artikal", "Dodaj_A", null, new AjaxOptions { UpdateTargetId = "AjaxDiv" }, null)
+</p>
+
+<div id="AjaxDiv"></div>
