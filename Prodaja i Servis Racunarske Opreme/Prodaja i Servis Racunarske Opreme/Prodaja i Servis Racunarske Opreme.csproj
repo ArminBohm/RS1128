@@ -121,9 +121,9 @@
     <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\computer-repair_.png" />
-    <Content Include="Images\hmbgicon_.png" />
-    <Content Include="Images\menu_bg_.jpg" />
+    <Content Include="Images\computer-repair.png" />
+    <Content Include="Images\hmbgicon.png" />
+    <Content Include="Images\menu_bg.jpg" />
     <Content Include="Images\Stop_hand.svg.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
