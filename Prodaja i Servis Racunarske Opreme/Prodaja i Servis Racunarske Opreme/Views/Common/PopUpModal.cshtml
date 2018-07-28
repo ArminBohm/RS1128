@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "PopUpModal";
+    string Cont = (string) ViewData["Sadrzaj"];
+    if (ViewBag.IsAjaxRequest == 1) { Layout = null; }
+}
+<div id="MojInfoScr">
+    <div class="modal show" role="dialog">
+        <div role="dialog">
+            <div class="modal-dialog" style="width: 380px;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        @RenderPage(Cont)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

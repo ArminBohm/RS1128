@@ -13,7 +13,8 @@ namespace RS1_110.Helper
             ViewBag.IsAjaxRequest = 0;
             if (Request.IsAjaxRequest())
                 ViewBag.IsAjaxRequest = 1;
-            return View("ErrMsgView");
+            ViewData["Sadrzaj"] = "~/Views/Common/AutErrView.cshtml";
+            return View("PopUpModal");
         }
     }
 }

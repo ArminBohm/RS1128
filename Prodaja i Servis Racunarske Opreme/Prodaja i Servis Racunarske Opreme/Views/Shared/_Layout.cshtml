@@ -11,7 +11,7 @@
 
     #Second {
         position: absolute;
-        right: 28px;
+        right: 30px;
         text-align: right;
     }
 
@@ -27,63 +27,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Simple Sidebar - Start Bootstrap Template</title>
-    <!-- Bootstrap core CSS -->
-    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>RS1 - Seminarski [FIT - Mostar 2018]</title>
+
     <!-- Custom styles for this template -->
     <link href="~/Content/css/simple-sidebar.css" rel="stylesheet">
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
+    @* Standard BootStrap Navigation bar *@
+    <div id="Standardni BootStrap" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Prodaja i Servis Računarske Opreme", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
+            <img src="~/Images/menu_bg.jpg" />
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="/Resursi/JedinicaMjere/Index">Jedinice Mjere</a>
-                </li>
-                <li>
-                    <a href="/Resursi/GrupaProizvoda/Index">Grupe Proizvoda</a>
-                </li>
-                <li>
-                    <a href="/Resursi/Proizvodjac/Index">Proizvodjaci</a>
-                </li>
-                <li>
-                    <a href="/Resursi/Grad/Index">Gradovi</a>
-                </li>
-                <li>
-                    <a href="/Resursi/StrucnaSprema/Index">Strucne Spreme</a>
-                </li>
-                <li>
-                    <a href="/Resursi/Zaduzenje/Index">Zaduzenja</a>
-                </li>
-                <li>
-                    <a href="/Resursi/Dobavljac/Index">Dobavljac</a>
-                </li>
-                <li>
-                    <a href="/Resursi/Artikal/Index">Artikal</a>
-                </li>
-                <li>
-                    <a href="/Resursi/Korisnik/Index">Korisnik</a>
-                </li>
-                <li>
-                    <a href="/Resursi/Zaposlenik/Index">Zaposlenik</a>
-                </li>
+                <li><img src="~/Images/computer-repair.png" width="100" style="margin:20px 20px 20px 5px" /></li>
+                <li style="font-size:25px; color:white; margin-bottom:20px; font-weight:bolder">Glavni menu</li>
+                <li>    <a href="/Resursi/JedinicaMjere/Index">   Jedinice Mjere  </a>    </li>
+                <li>    <a href="/Resursi/GrupaProizvoda/Index">  Grupe Proizvoda </a>    </li>
+                <li>    <a href="/Resursi/Proizvodjac/Index">     Proizvođači     </a>    </li>
+                <li>    <a href="/Resursi/Grad/Index">            Gradovi         </a>    </li>
+                <li>    <a href="/Resursi/StrucnaSprema/Index">   Stručne Spreme  </a>    </li>
+                <li>    <a href="/Resursi/Zaduzenje/Index">       Zaduženja       </a>    </li>
+                <li>    <a href="/Resursi/Dobavljac/Index">       Dobavljači      </a>    </li>
+                <li>    <a href="/Resursi/Artikal/Index">         Artikli         </a>    </li>
+                <li>    <a href="/Resursi/Korisnik/Index">        Korisnici       </a>    </li>
+                <li>    <a href="/Resursi/Zaposlenik/Index">      Zaposlenici     </a>    </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="container-fluid" style="background-color:black">
+            <div class="container-fluid" style="border:solid 3px; color:darkgreen; border-radius: 8px;">
                 <div id="First">
-                    <a href="#menu-toggle" style="color:white; " id="menu-toggle">Toggle Menu</a>
+                    <img src="~/Images/hmbgicon.png" id="menu-toggle" width="30" />
                 </div>
-                <div id="Second">
-                    <label style="color:white; text-align:center">Loged:@User </label>
+                <div id="Second" style="text-align:center;">
+                    <label style="color:blue;">Loged:@User </label>
                 </div>
             </div>
             @RenderBody()
@@ -95,9 +85,11 @@
 </html>
 
 <!-- Bootstrap core JavaScript -->
-<script src="~/Content/vendor/jquery/jquery.min.js"></script>
-<script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
 <!-- Menu Toggle Script -->
 <script>
     $("#menu-toggle").click(function (e) {
