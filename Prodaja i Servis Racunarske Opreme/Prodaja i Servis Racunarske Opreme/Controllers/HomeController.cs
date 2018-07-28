@@ -61,14 +61,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
             }
             FormsAuthentication.SetAuthCookie(LS.UserName, false);
             Session["Logirani"] = LS;
-            if (LS.Korisnik == true)
-            {
-                return View("KorisnickiDio");
-            }
-            else
-            {
-                return View("Index");
-            }
+            return RedirectToAction("HomePage");
         }
 
         [Authorize]
@@ -79,6 +72,15 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        public ActionResult HomePage()
+        {
+            LogiraniSes ls = Session["Logirani"] as LogiraniSes;
+            if (ls.Korisnik)
+                return View("KorisnickiDio");
+            return View("Index");
         }
 
     }

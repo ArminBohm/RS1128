@@ -1,0 +1,35 @@
+﻿<h3 style="color:darkblue; text-align:center;"><b>Autorizacijska ogranicenja</b></h3><br />
+<p>
+    <div style="text-align:center">
+        <h2 style="color:red;">
+            Obavijest:
+        </h2><br />
+    </div>
+    Ukoliko citate ovo obavjestenje, znaci da ste pokusali<br />
+    pristupiti dijelovima programa za koje nemate ovlasti.<br />
+    Potrazite pomoc od:<br /><br />
+
+    <div style="display:inline-block; color:green">
+        &nbsp;&nbsp;&nbsp;- [ <i>Administrator</i> ]<br />
+        <br />
+    </div>
+    <div style="width:100px; height:100px; display:inline-block; position:fixed; margin:0px 0px 0px 120px;">
+        <img id="logo" src="~/Images/Stop_hand.svg.png" style="width:100px;" />
+    </div>
+</p>
+<a href="javascript:history.back()" class="btn btn-info" style="margin-bottom:20px">OK</a>
+
+<script type="text/javascript">
+    setInterval(animacija, 1500);
+    $(function () {
+        $('#Potvrda').click(function () {
+            clearInterval(animacija);
+            $('#MojInfoScr').hide();
+        });
+    });
+    function animacija() {
+        $('#logo').animate({ height: '90px', width: '90px' }, "slow", function () {
+            $('#logo').animate({ height: '100px', width: '100px' }, "slow")
+        })
+    }
+</script>
