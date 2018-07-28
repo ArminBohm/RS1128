@@ -82,6 +82,5 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
                 return View("KorisnickiDio");
             return View("Index");
         }
-
     }
 }
