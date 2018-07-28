@@ -46,6 +46,15 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Spasi_A(ArtikalVM Nova_A)
         {
+            if (!ModelState.IsValid)
+            {
+                Nova_A.LGP = CTX.GrupeProizvoda.ToList();
+                Nova_A.LJM = CTX.JediniceMjere.ToList();
+                Nova_A.LPro = CTX.Proizvodjaci.ToList();
+
+                return View("Dodavanje_A", Nova_A);
+            }
+
             bool Pronadjeno = false;
             foreach (Artikal A in CTX.Artikli)
             {

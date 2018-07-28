@@ -2,9 +2,8 @@
 
 @{
     ViewBag.Title = "Dodavanje_A";
+    //Layout = null;
 }
-
-<h2 style="text-align:center">Dodavanje Artikla</h2>
 
 
 @using (Html.BeginForm("Spasi_A", "Artikal"))
@@ -21,7 +20,8 @@
                         Naziv
                         <div class="col-md-12">
                             @Html.EditorFor(model => model.Naziv, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Naziv, "", new { @class = "text-danger" })
+                            @*<br />
+                            @Html.ValidationMessageFor(model => model.Naziv, "", new { @class = "text-danger" })*@
                         </div>
                     </div>
                 </td>
@@ -30,7 +30,8 @@
                         Cijena
                         <div class="col-md-12">
                             @Html.EditorFor(model => model.Cijena, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Cijena, "", new { @class = "text-danger" })
+                            @*<br />
+                            @Html.ValidationMessageFor(model => model.Cijena, "", new { @class = "text-danger" })*@
                         </div>
                     </div>
                 </td>
@@ -39,11 +40,13 @@
                         Jedinica Mjere
                         <div class="col-md-12">
                             @Html.DropDownListFor(model => model.LJMId, Model.DDLJM, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.LJMId, "", new { @class = "text-danger" })
+                            @*<br />  
+                            @Html.ValidationMessageFor(model => model.LJMId, "", new { @class = "text-danger" })*@
+                            
                         </div>
                     </div>
                 </td>
-                
+
             </tr>
             <tr>
                 <td>
@@ -51,7 +54,8 @@
                         Grupa Proizvoad
                         <div class="col-md-12">
                             @Html.DropDownListFor(model => model.GPId, Model.DDLGP, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.GPId, "", new { @class = "text-danger" })
+                            @*<br />
+                            @Html.ValidationMessageFor(model => model.GPId, "", new { @class = "text-danger" })*@
                         </div>
                     </div>
                 </td>
@@ -60,29 +64,38 @@
                         Proizvodjac
                         <div class="col-md-12">
                             @Html.DropDownListFor(model => model.ProId, Model.DDLPro, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ProId, "", new { @class = "text-danger" })
+                            @*<br />
+                            @Html.ValidationMessageFor(model => model.ProId, "", new { @class = "text-danger" })*@
                         </div>
                     </div>
                 </td>
 
             </tr>
             <tr style="height:100px">
-                <td colspan="3" align="right" style="padding:48px 0px 0px 0px">
+                <td colspan="2">
+                    <div style="color:red;">
+                        @Html.ValidationSummary()
+                    </div>
+                </td>
+                <td  align="right" style="padding:48px 0px 0px 0px">
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Spasi" class="btn btn-success" style="width:125px" />
                         </div>
                     </div>
                 </td>
-
             </tr>
         </table>
 
     </div>
 
+
 }
 
-
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#Potvrda').click(function () {
+            $('#MojInfoScr').hide();
+        });
+    });
+</script>
