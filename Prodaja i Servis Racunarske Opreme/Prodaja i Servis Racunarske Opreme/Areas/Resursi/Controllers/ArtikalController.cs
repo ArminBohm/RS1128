@@ -44,6 +44,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             return View("Dodavanje_A", Model);
         }
         [Pristup(Ovlasti = "Administrator")]
+
         public ActionResult Spasi_A(ArtikalVM Nova_A)
         {
             if (!ModelState.IsValid)
@@ -76,8 +77,14 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
+            return View("NullAjaxView");
+        }
+
+        public ActionResult StopAjax()
+        {
             return RedirectToAction("Index");
         }
+
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_A(int id)
         {
@@ -101,6 +108,15 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult SpasiIzmjenu_A(ArtikalVM Podaci)
         {
+
+            if (!ModelState.IsValid)
+            {
+                Podaci.LGP = CTX.GrupeProizvoda.ToList();
+                Podaci.LJM = CTX.JediniceMjere.ToList();
+                Podaci.LPro = CTX.Proizvodjaci.ToList();
+
+                return View("Edituj_A", Podaci);
+            }
             Artikal Izmjenuti = CTX.Artikli.Where(x => x.Id == Podaci.IdArtikla).FirstOrDefault();
             Izmjenuti.Naziv = Podaci.Naziv;
             Izmjenuti.Cijena = Podaci.Cijena;

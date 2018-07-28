@@ -179,6 +179,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Resursi\Views\Artikal\NullAjaxView.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -298,6 +299,7 @@
     <Content Include="Views\Home\KorisnickiDio.cshtml" />
     <Content Include="Views\Common\PopUpModal.cshtml" />
     <Content Include="Views\Common\AutErrView.cshtml" />
+    <Content Include="Views\Common\EmptyView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
