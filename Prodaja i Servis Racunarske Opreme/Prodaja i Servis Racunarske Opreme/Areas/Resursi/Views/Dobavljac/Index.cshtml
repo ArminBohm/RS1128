@@ -28,7 +28,7 @@
                 @Html.DisplayFor(modelItem => item.NazivGrada)
             </td>
             <td>
-                @Html.ActionLink("Edituj", "Edituj_D", new { id = item.IdDobavljaca }) |
+                @Ajax.ActionLink("Edituj", "Edituj_D", new { id = item.IdDobavljaca }, new AjaxOptions { UpdateTargetId = "AjaxDiv" }) |
                 @Html.ActionLink("Brisanje", "Brisanje_D", new { id = item.IdDobavljaca })
             </td>
         </tr>
@@ -37,5 +37,7 @@
 </table>
 
 <p>
-    @Html.ActionLink("Novi Dobavljac", "Dodaj_D")
+    @Ajax.ActionLink("Novi Dobavljac", "Dodaj_D", new AjaxOptions { UpdateTargetId = "AjaxDiv" })
 </p>
+
+<div id="AjaxDiv"></div>
