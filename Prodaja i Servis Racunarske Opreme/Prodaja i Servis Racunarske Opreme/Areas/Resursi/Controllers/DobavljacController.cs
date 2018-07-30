@@ -62,7 +62,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_D(int id)
@@ -84,7 +84,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             if (!ModelState.IsValid)
             {
                 Podaci.Lgradovi = CTX.Gradovi.ToList();
-                return View("Dodavanje_D", Podaci);
+                return View("Edituj_D", Podaci);
             }
 
             Dobavljac Izmjenuti = CTX.Dobavljaci.Where(x => x.Id == Podaci.IdDobavljaca).FirstOrDefault();
@@ -92,7 +92,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             Izmjenuti.GradId = Podaci.GradId;
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_D(int id)

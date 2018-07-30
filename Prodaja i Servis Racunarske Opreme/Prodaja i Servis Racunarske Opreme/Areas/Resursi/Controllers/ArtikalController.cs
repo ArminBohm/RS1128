@@ -121,7 +121,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_A(int id)

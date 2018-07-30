@@ -32,6 +32,10 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Spasi_G(Grad Nova_G)
         {
             bool Pronadjeno = false;
+            if (!ModelState.IsValid)
+            {
+                return View("Dodavanje_G", Nova_G);
+            }
             foreach (Grad JM in CTX.Gradovi)
             {
                 if (JM.Naziv == Nova_G.Naziv)
@@ -46,7 +50,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_G(int id)
@@ -69,7 +73,10 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             //{
             //    return RedirectToAction("Index");
             //}
-
+            if (!ModelState.IsValid)
+            {
+                return View("Edituj_G", Podaci);
+            }
             foreach (Grad G in CTX.Gradovi)
             {
                 if (G.Naziv == Podaci.Naziv && G.Id != Podaci.Id)
@@ -84,7 +91,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_G(int id)
