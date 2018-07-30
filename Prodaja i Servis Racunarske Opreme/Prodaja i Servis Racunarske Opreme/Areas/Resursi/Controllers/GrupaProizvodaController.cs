@@ -32,6 +32,10 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Spasi_GP(GrupaProizvoda Nova_GP)
         {
             bool Pronadjeno = false;
+            if (!ModelState.IsValid)
+            {
+                return View("Dodavanje_GP", Nova_GP);
+            }
             foreach (GrupaProizvoda JM in CTX.GrupeProizvoda)
             {
                 if (JM.Naziv == Nova_GP.Naziv)
@@ -46,7 +50,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_GP(int id)
@@ -59,11 +63,15 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult SpasiIzmjenu_GP(GrupaProizvoda Podaci)
         {
             GrupaProizvoda Izmjenuti = CTX.GrupeProizvoda.Where(x => x.Id == Podaci.Id).FirstOrDefault();
+            if (!ModelState.IsValid)
+            {
+                return View("Edituj_GP", Podaci);
+            }
             Izmjenuti.Naziv = Podaci.Naziv;
 
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_GP(int id)
