@@ -22,7 +22,7 @@
             @Html.DisplayFor(modelItem => item.Naziv)
         </td>
         <td>
-            @Html.ActionLink("Edituj", "Edituj_JM", new { id=item.Id }) |
+            @Ajax.ActionLink("Edituj", "Edituj_JM", new { id=item.Id }, new AjaxOptions { UpdateTargetId = "AjaxDiv" }) |
             @Html.ActionLink("Brisanje", "Brisanje_JM", new { id=item.Id })
         </td>
     </tr>
@@ -31,5 +31,7 @@
 </table>
 
 <p>
-    @Html.ActionLink("Dodaj Novu Jed. Mjere", "Dodaj_JM")
+    @Ajax.ActionLink("Dodaj Novu Jed. Mjere", "Dodaj_JM" , new AjaxOptions { UpdateTargetId = "AjaxDiv" })
 </p>
+
+<div id="AjaxDiv"></div>

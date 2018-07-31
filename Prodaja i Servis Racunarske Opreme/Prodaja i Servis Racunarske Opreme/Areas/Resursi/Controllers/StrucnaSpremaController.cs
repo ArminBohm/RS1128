@@ -32,7 +32,11 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Spasi_SP(StrucnaSprema Nova_SP)
         {
             bool Pronadjeno = false;
-            foreach (StrucnaSprema JM in CTX.StrucneSpreme)
+            if (!ModelState.IsValid)
+            {
+                return View("Dodavanje_SP", Nova_SP);
+            }
+                foreach (StrucnaSprema JM in CTX.StrucneSpreme)
             {
                 if (JM.Naziv == Nova_SP.Naziv)
                 {
@@ -46,7 +50,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
 
         public ActionResult Edituj_SP(int id)
@@ -59,11 +63,15 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult SpasiIzmjenu_SP(StrucnaSprema Podaci)
         {
             StrucnaSprema Izmjenuti = CTX.StrucneSpreme.Where(x => x.Id == Podaci.Id).FirstOrDefault();
-            Izmjenuti.Naziv = Podaci.Naziv;
+            if (!ModelState.IsValid)
+            {
+                return View("Dodavanje_SP", Podaci);
+            }
+                Izmjenuti.Naziv = Podaci.Naziv;
 
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
 
         public ActionResult Brisanje_SP(int id)

@@ -32,7 +32,11 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Spasi_JM(JedinicaMjere Nova_JM)
         {
             bool Pronadjeno = false;
-            foreach(JedinicaMjere JM in CTX.JediniceMjere)
+            if (!ModelState.IsValid)
+            {
+                return View("Dodavanje_JM", Nova_JM);
+            }
+            foreach (JedinicaMjere JM in CTX.JediniceMjere)
             {
                 if(JM.Naziv == Nova_JM.Naziv)
                 {
@@ -46,7 +50,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_JM(int id)
@@ -59,11 +63,15 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult SpasiIzmjenu_JM (JedinicaMjere Podaci)
         {
             JedinicaMjere Izmjenuti = CTX.JediniceMjere.Where(x => x.Id == Podaci.Id).FirstOrDefault();
+            if (!ModelState.IsValid)
+            {
+                return View("Edituj_JM", Podaci);
+            }
             Izmjenuti.Naziv = Podaci.Naziv;
 
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_JM (int id)
