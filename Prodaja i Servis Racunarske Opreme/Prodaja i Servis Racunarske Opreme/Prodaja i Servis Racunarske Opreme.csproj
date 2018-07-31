@@ -261,6 +261,18 @@
     <Compile Include="Migrations\201807302049460_M2.Designer.cs">
       <DependentUpon>201807302049460_M2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807312039478_M21.cs" />
+    <Compile Include="Migrations\201807312039478_M21.Designer.cs">
+      <DependentUpon>201807312039478_M21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807312056553_M3.cs" />
+    <Compile Include="Migrations\201807312056553_M3.Designer.cs">
+      <DependentUpon>201807312056553_M3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807312141493_M4.cs" />
+    <Compile Include="Migrations\201807312141493_M4.Designer.cs">
+      <DependentUpon>201807312141493_M4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artikal.cs" />
     <Compile Include="Models\Dobavljac.cs" />
@@ -341,6 +353,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807302049460_M2.resx">
       <DependentUpon>201807302049460_M2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807312039478_M21.resx">
+      <DependentUpon>201807312039478_M21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807312056553_M3.resx">
+      <DependentUpon>201807312056553_M3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807312141493_M4.resx">
+      <DependentUpon>201807312141493_M4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -31,6 +31,10 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Spasi_P(Proizvodjac Nova_P)
         {
             bool Pronadjeno = false;
+            if (!ModelState.IsValid)
+            {
+                return View("Dodavanje_P", Nova_P);
+            }
             foreach (Proizvodjac JM in CTX.Proizvodjaci)
             {
                 if (JM.Naziv == Nova_P.Naziv)
@@ -45,7 +49,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Edituj_P(int id)
@@ -58,11 +62,15 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult SpasiIzmjenu_P(Proizvodjac Podaci)
         {
             Proizvodjac Izmjenuti = CTX.Proizvodjaci.Where(x => x.Id == Podaci.Id).FirstOrDefault();
+            if (!ModelState.IsValid)
+            {
+                return View("Edituj_P", Podaci);
+            }
             Izmjenuti.Naziv = Podaci.Naziv;
 
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_P(int id)
