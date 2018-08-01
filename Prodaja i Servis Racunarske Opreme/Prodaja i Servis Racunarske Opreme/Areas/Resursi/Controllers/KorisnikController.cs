@@ -57,7 +57,8 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             {
                 Nova_K.LGrad = CTX.Gradovi.ToList();
                 Nova_K.DatumRegistracije = DateTime.Now;
-                return View("Dodavanje_JM", Nova_K);
+
+                return View("Dodavanje_K", Nova_K);
             }
             foreach (Korisnik A in CTX.Korisnici)
             {

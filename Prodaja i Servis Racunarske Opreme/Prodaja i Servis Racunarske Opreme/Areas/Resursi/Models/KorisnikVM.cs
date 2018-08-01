@@ -14,16 +14,25 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models
         public DateTime DatumRegistracije { get; set; }
         public bool Status { get; set; }
 
+        [Required(ErrorMessage = "Potrebno unjeti ime")]
         public string Ime { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti prezime")]
         public string Prezime { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti adresu")]
         public string Adresa { get; set; }
         public string Email { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti broj telefona")]
         public string BrojTelefona { get; set; }
         public char Spol { get; set; }
+
+        [Required(ErrorMessage = "Potrebno unjeti username")]
         public string UserName { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti password")]
+        [MinLength(6,ErrorMessage ="Password nije dovoljno dug")]
         public string Password { get; set; }
 
         public List<Grad> LGrad { get; set; }
+        [Required(ErrorMessage = "Potrebno odabrati grad")]
         public int GradId { get; set; }
         public string NazivGrada { get; set; }
 
