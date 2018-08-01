@@ -53,6 +53,12 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Spasi_K(KorisnikVM Nova_K)
         {
             bool Pronadjeno = false;
+            if (!ModelState.IsValid)
+            {
+                Nova_K.LGrad = CTX.Gradovi.ToList();
+                Nova_K.DatumRegistracije = DateTime.Now;
+                return View("Dodavanje_JM", Nova_K);
+            }
             foreach (Korisnik A in CTX.Korisnici)
             {
                 if (A.Osoba.UserName == Nova_K.UserName)
@@ -84,7 +90,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
 
         public ActionResult Edituj_K(int id)
@@ -114,6 +120,12 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
         public ActionResult SpasiIzmjenu_K(KorisnikVM Podaci)
         {
+            if (!ModelState.IsValid)
+            {
+                Podaci.LGrad = CTX.Gradovi.ToList();
+                Podaci.DatumRegistracije = DateTime.Now;
+                return View("Eituj_K", Podaci);
+            }
             Korisnik Izmjenuti = CTX.Korisnici.Where(x => x.Id == Podaci.id).Include(x=> x.Osoba).FirstOrDefault();
             Izmjenuti.Osoba.Ime = Podaci.Ime;
             Izmjenuti.Osoba.Prezime = Podaci.Prezime;
@@ -129,7 +141,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
 
         public ActionResult Brisanje_K(int id)
