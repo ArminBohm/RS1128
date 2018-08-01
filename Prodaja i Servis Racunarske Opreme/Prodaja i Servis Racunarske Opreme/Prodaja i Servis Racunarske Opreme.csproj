@@ -273,6 +273,10 @@
     <Compile Include="Migrations\201807312141493_M4.Designer.cs">
       <DependentUpon>201807312141493_M4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808011920196_M5.cs" />
+    <Compile Include="Migrations\201808011920196_M5.Designer.cs">
+      <DependentUpon>201808011920196_M5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artikal.cs" />
     <Compile Include="Models\Dobavljac.cs" />
@@ -362,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807312141493_M4.resx">
       <DependentUpon>201807312141493_M4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011920196_M5.resx">
+      <DependentUpon>201808011920196_M5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
