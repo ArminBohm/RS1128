@@ -57,15 +57,17 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             {
                 Nova_K.LGrad = CTX.Gradovi.ToList();
                 Nova_K.DatumRegistracije = DateTime.Now;
-
+                Nova_K.Status = false;
                 return View("Dodavanje_K", Nova_K);
             }
+
             foreach (Korisnik A in CTX.Korisnici)
             {
                 if (A.Osoba.UserName == Nova_K.UserName)
                 {
                     Pronadjeno = true;
                 }
+
             }
 
             if (Pronadjeno == false)
