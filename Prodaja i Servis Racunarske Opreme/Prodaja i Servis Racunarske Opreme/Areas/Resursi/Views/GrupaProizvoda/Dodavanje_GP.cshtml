@@ -10,7 +10,7 @@
             <div class="modal-dialog" style="width: 550px;">
                 <div class="modal-content">
                     <div class="modal-body">
-                        @using (Html.BeginForm("Spasi_GP", "GrupaProizvoda"))
+                        @using (Ajax.BeginForm("Spasi_GP", "GrupaProizvoda", new AjaxOptions { UpdateTargetId = "AjaxDiv" }))
                         {
                             @Html.AntiForgeryToken()
 
