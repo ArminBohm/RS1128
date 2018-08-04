@@ -14,24 +14,36 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models
         public DateTime PocetakRadnogOdnosa { get; set; }
         public DateTime ZavrsetakRadnogOdnosa { get; set; }
 
+        [Required(ErrorMessage = "Potrebno unjeti ime")]
         public string Ime { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti prezime")]
         public string Prezime { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti adresu")]
         public string Adresa { get; set; }
+
+
         public string Email { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti broj telefona")]
         public string BrojTelefona { get; set; }
         public char Spol { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti usernaem")]
         public string UserName { get; set; }
+        [Required(ErrorMessage = "Potrebno unjeti password")]
+        [MinLength(6, ErrorMessage = "Password nije dovoljno dug")]
         public string Password { get; set; }
 
         public List<Grad> LGrad { get; set; }
+        [Required(ErrorMessage = "Potrebno odabrati grad")]
         public int GradId { get; set; }
         public string NazivGrada { get; set; }
 
         public List<StrucnaSprema> LSP { get; set; }
+        [Required(ErrorMessage = "Potrebno odabrati strucnu spremu")]
         public int LSPId { get; set; }
         public string SPNaziv { get; set; }
 
         public List<Zaduzenje> LZaduzenje { get; set; }
+        [Required(ErrorMessage = "Potrebno odabrati zaduzenje")]
         public int LZaduzenjeId { get; set; }
         public string Zaduzenje { get; set; }
 

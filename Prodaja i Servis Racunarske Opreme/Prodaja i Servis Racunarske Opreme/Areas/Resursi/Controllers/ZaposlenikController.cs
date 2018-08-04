@@ -63,6 +63,15 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Spasi_Z(ZaposlenikVM Nova_Z)
         {
             bool Pronadjeno = false;
+            if (!ModelState.IsValid)
+            {
+                Nova_Z.LGrad = CTX.Gradovi.ToList();
+                Nova_Z.PocetakRadnogOdnosa = DateTime.Now;
+                Nova_Z.LSP = CTX.StrucneSpreme.ToList();
+                Nova_Z.LZaduzenje = CTX.Zaduzenja.ToList();
+
+                return View("Dodavanje_Z", Nova_Z);
+            }
             foreach (Zaposlenik Z in CTX.Zaposlenici.Include(x => x.Osoba))
             {
                 if (Z.Osoba.UserName == Nova_Z.UserName)
@@ -98,7 +107,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
 
         public ActionResult Edituj_Z(int id)
@@ -131,6 +140,16 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
         public ActionResult SpasiIzmjenu_Z(ZaposlenikVM Podaci)
         {
+
+            if (!ModelState.IsValid)
+            {
+                Podaci.LGrad = CTX.Gradovi.ToList();
+                Podaci.PocetakRadnogOdnosa = Podaci.PocetakRadnogOdnosa;
+                Podaci.LSP = CTX.StrucneSpreme.ToList();
+                Podaci.LZaduzenje = CTX.Zaduzenja.ToList();
+
+                return View("Edituj_Z", Podaci);
+            }
             Zaposlenik Izmjenuti = CTX.Zaposlenici.Where(x => x.Id == Podaci.id).Include(x => x.Osoba).FirstOrDefault();
             Izmjenuti.Osoba.Ime = Podaci.Ime;
             Izmjenuti.Osoba.Prezime = Podaci.Prezime;
@@ -148,7 +167,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
             CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
 
         public ActionResult Brisanje_Z(int id)
