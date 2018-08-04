@@ -2,144 +2,157 @@
 
 @{
     ViewBag.Title = "Dodavanje_Z";
+    Layout = null; 
 }
 
-<h2 align="center">Editovanje Zaposlenika</h2>
 
-@using (Html.BeginForm("SpasiIzmjenu_Z", "Zaposlenik"))
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div id="MojInfoScr">
+    <div class="modal show" role="dialog">
+        <div role="dialog">
+            <div class="modal-dialog" style="width: 800px;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        @using (Ajax.BeginForm("SpasiIzmjenu_Z", "Zaposlenik", new AjaxOptions { UpdateTargetId = "AjaxDiv" }))
+                        {
+                            @Html.AntiForgeryToken()
 
-        @Html.HiddenFor(model => Model.id)
-        @Html.HiddenFor(model => Model.PocetakRadnogOdnosa)
-        @Html.HiddenFor(model => Model.UserName)
+                        <div class="form-horizontal">
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <table align="center" style="outline:dotted; outline-color:green">
-            <tr align="left">
-                <td colspan="3">
-                    <div class="form-group" style="display:inline-block; text-align:center">
-                        Ime
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.Ime, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Ime, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                            @Html.HiddenFor(model => Model.id)
+                            @Html.HiddenFor(model => Model.PocetakRadnogOdnosa)
+                            @Html.HiddenFor(model => Model.UserName)
+                            <h2 align="center">Editovanje Zaposlenika</h2>
+                            <table align="center" style="outline:dotted; outline-color:green">
+                                <tr align="left" style="height:75px;">
+                                    <td>
+                                        <div class="form-group" style="text-align:center">
+                                            Ime
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Ime, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group" style="display:inline-block; text-align:center">
+                                            Prezime
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Prezime, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                <tr align="left" style="height:75px;">
+                                    <td>
+                                        <div class="form-group" style="text-align:center; width:260px;">
+                                            Pocetak Radnog Odnosa
+                                            <div class="col-md-12" style="text-decoration:b">
+                                                <b> @Html.DisplayFor(model => model.PocetakRadnogOdnosa, new { htmlAttributes = new { @class = "form-control" } })</b>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group" style="text-align:center; width:260px;">
+                                            Kraj Radnog Odnosa
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.ZavrsetakRadnogOdnosa, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr align="left" style="height:75px;">
+                                    <td>
+                                        <div class="form-group" style="text-align:center;">
+                                            Adresa
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Adresa, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group" style="text-align:center;">
+                                            E-mail
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group" style="text-align:center;">
+                                            Broj Telefona
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.BrojTelefona, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr align="left" style="height:75px;">
+                                    <td>
+                                        <div class="form-group" style="text-align:center;">
+                                            Password
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr align="left" style="height:75px;">
+                                    <td>
+                                        <div class="form-group" style="text-align:center;">
+                                            Grad
+                                            <div class="col-md-15">
 
-                    <div class="form-group" style="display:inline-block; text-align:center">
-                        Prezime
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.Prezime, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Prezime, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-<tr align="left">
-                <td>
-                    <div class="form-group" style="text-align:center; width:260px;">
-                        Pocetak Radnog Odnosa
-                        <div class="col-md-12" style="text-decoration:b">
-                            <b> @Html.DisplayFor(model => model.PocetakRadnogOdnosa, new { htmlAttributes = new { @class = "form-control" } })</b>
-                            @Html.ValidationMessageFor(model => model.Ime, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group" style="text-align:center; width:260px;">
-                        Kraj Radnog Odnosa
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.ZavrsetakRadnogOdnosa, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Ime, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr align="left">
-                <td>
-                    <div class="form-group" style="text-align:center;">
-                        Adresa
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.Adresa, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Adresa, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group" style="text-align:center;">
-                        E-mail
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group" style="text-align:center;">
-                        Broj Telefona
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.BrojTelefona, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.BrojTelefona, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr align="left">
-                <td>
-                    <div class="form-group" style="text-align:center;">
-                        Password
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr align="left" style="height:75px;">
-                <td>
-                    <div class="form-group" style="text-align:center;">
-                        Grad
-                        <div class="col-md-15">
+                                                @Html.DropDownListFor(model => model.GradId, Model.DDLG, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group" style="text-align:center;">
+                                            Strucna Sprema
+                                            <div class="col-md-15">
 
-                            @Html.DropDownListFor(model => model.GradId, Model.DDLG, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.GradId, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group" style="text-align:center;">
-                        Strucna Sprema
-                        <div class="col-md-15">
+                                                @Html.DropDownListFor(model => model.LSPId, Model.DDLSP, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group" style="text-align:center;">
+                                            Zaduzenje
+                                            <div class="col-md-15">
 
-                            @Html.DropDownListFor(model => model.LSPId, Model.DDLSP, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.LSPId, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group" style="text-align:center;">
-                        Zaduzenje
-                        <div class="col-md-15">
+                                                @Html.DropDownListFor(model => model.LZaduzenjeId, Model.DDLZ, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            @Html.DropDownListFor(model => model.LZaduzenjeId, Model.DDLZ, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.LZaduzenjeId, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-            </tr>
+                                <tr style="height:100px">
+                                    <td colspan="2">
+                                        <div style="color:red;">
+                                            @Html.ValidationSummary()
+                                        </div>
+                                    </td>
+                                    <td align="right" style="padding:48px 0px 0px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Spasi" class="btn btn-success" style="width:125px" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
 
-            <tr style="height:100px">
-                <td colspan="3" align="right" style="padding:48px 0px 0px 0px">
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Spasi Izmjene" class="btn btn-success" style="width:125px" />
+                            </table>
                         </div>
-                    </div>
-                </td>
+                        }
 
-            </tr>
-        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-}
+</div>
