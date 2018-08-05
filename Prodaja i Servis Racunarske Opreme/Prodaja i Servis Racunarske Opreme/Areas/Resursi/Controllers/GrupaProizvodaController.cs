@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 {
-    
+
     public class GrupaProizvodaController : Controller
     {
         // GET: Resursi/GrupaProizvoda
@@ -76,12 +76,18 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_GP(int id)
         {
+            try
+            {
+                CTX.GrupeProizvoda.Remove(CTX.GrupeProizvoda.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.GrupeProizvoda.Remove(CTX.GrupeProizvoda.Where(x => x.Id == id).FirstOrDefault());
+                CTX.SaveChanges();
 
-            CTX.SaveChanges();
-
-            return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("../../Common/DelMsg");
+            }
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
     }
 }

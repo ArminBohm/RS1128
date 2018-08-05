@@ -41,7 +41,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 SPNaziv = x.StrucnaSprema.Naziv,
                 LZaduzenjeId = x.ZaduzenjeId,
                 Zaduzenje = x.Zaduzenje.Naziv
-                
+
             }));
 
             return View(Model);
@@ -172,12 +172,19 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
         public ActionResult Brisanje_Z(int id)
         {
-            CTX.Osobe.Remove(CTX.Osobe.Where(x => x.Id == id).FirstOrDefault());
-            CTX.Zaposlenici.Remove(CTX.Zaposlenici.Where(x => x.Id == id).FirstOrDefault());
+            try
+            {
+                CTX.Osobe.Remove(CTX.Osobe.Where(x => x.Id == id).FirstOrDefault());
+                CTX.Zaposlenici.Remove(CTX.Zaposlenici.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.SaveChanges();
+                CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("../../Common/DelMsg");
+            }
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
     }
 }

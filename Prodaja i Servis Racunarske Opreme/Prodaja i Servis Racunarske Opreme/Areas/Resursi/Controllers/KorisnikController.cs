@@ -11,7 +11,7 @@ using Prodaja_i_Servis_Racunarske_Opreme.Helper;
 
 namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 {
-    [Pristup(Ovlasti ="Administrator")]
+    [Pristup(Ovlasti = "Administrator")]
     public class KorisnikController : Controller
     {
         // GET: Resursi/Korisnik
@@ -21,7 +21,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         {
             List<KorisnikVM> Model = new List<KorisnikVM>();
             List<Korisnik> Podaci = CTX.Korisnici.Include(x => x.Osoba).ToList();
-            
+
             Model.AddRange(Podaci.Select(x => new KorisnikVM
             {
                 DatumRegistracije = x.DatumRegistracije,
@@ -102,7 +102,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         public ActionResult Edituj_K(int id)
         {
             KorisnikVM Model = new KorisnikVM();
-            Korisnik Podaci = CTX.Korisnici.Where(x => x.Id == id).Include(x=> x.Osoba).FirstOrDefault();
+            Korisnik Podaci = CTX.Korisnici.Where(x => x.Id == id).Include(x => x.Osoba).FirstOrDefault();
 
             Model.LGrad = CTX.Gradovi.ToList();
 
@@ -132,7 +132,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 Podaci.DatumRegistracije = DateTime.Now;
                 return View("Eituj_K", Podaci);
             }
-            Korisnik Izmjenuti = CTX.Korisnici.Where(x => x.Id == Podaci.id).Include(x=> x.Osoba).FirstOrDefault();
+            Korisnik Izmjenuti = CTX.Korisnici.Where(x => x.Id == Podaci.id).Include(x => x.Osoba).FirstOrDefault();
             Izmjenuti.Osoba.Ime = Podaci.Ime;
             Izmjenuti.Osoba.Prezime = Podaci.Prezime;
             Izmjenuti.Osoba.Spol = Podaci.Spol;
@@ -152,12 +152,19 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
         public ActionResult Brisanje_K(int id)
         {
-            CTX.Osobe.Remove(CTX.Osobe.Where(x => x.Id == id).FirstOrDefault());
-            CTX.Korisnici.Remove(CTX.Korisnici.Where(x => x.Id == id).FirstOrDefault());
+            try
+            {
+                CTX.Osobe.Remove(CTX.Osobe.Where(x => x.Id == id).FirstOrDefault());
+                CTX.Korisnici.Remove(CTX.Korisnici.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.SaveChanges();
+                CTX.SaveChanges();
 
-            return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("../../Common/DelMsg");
+            }
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
     }
 }

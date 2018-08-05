@@ -6,14 +6,14 @@
         </h2><br />
     </div>
     Ukoliko citate ovo obavjestenje, znaci da ste pokusali<br />
-    Obrisati dijelove programa koji se koriste.<br />
+    Obrisati dijelove programa koji se koriste.<br /> <br>
 
     <div style="width:100px; height:100px; display:inline-block; position:fixed; margin:0px 0px 0px 120px;">
         <img id="logo" src="~/Images/Stop_hand.svg.png" style="width:100px;" />
     </div>
 </p>
-<a href="javascript:history.back()" class="btn btn-info" style="margin-bottom:20px">OK</a>
-
+<a href="#" class="btn btn-info" style="margin-bottom:10px; margin-top:70px;" id="Potvrda">OK</a>
+@*"javascript:history.back()"*@
 <script type="text/javascript">
     setInterval(animacija, 1500);
     $(function () {
@@ -28,4 +28,6 @@
             $('#logo').animate({ height: '100px', width: '100px' }, "slow")
         })
     }
+    
+
 </script>
