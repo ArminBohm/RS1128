@@ -36,7 +36,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             {
                 return View("Dodavanje_SP", Nova_SP);
             }
-                foreach (StrucnaSprema JM in CTX.StrucneSpreme)
+            foreach (StrucnaSprema JM in CTX.StrucneSpreme)
             {
                 if (JM.Naziv == Nova_SP.Naziv)
                 {
@@ -67,7 +67,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             {
                 return View("Dodavanje_SP", Podaci);
             }
-                Izmjenuti.Naziv = Podaci.Naziv;
+            Izmjenuti.Naziv = Podaci.Naziv;
 
             CTX.SaveChanges();
 
@@ -76,12 +76,18 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
         public ActionResult Brisanje_SP(int id)
         {
+            try
+            {
+                CTX.StrucneSpreme.Remove(CTX.StrucneSpreme.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.StrucneSpreme.Remove(CTX.StrucneSpreme.Where(x => x.Id == id).FirstOrDefault());
+                CTX.SaveChanges();
 
-            CTX.SaveChanges();
-
-            return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("../../Common/DelMsg");
+            }
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
     }
 }

@@ -79,14 +79,13 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             try
             {
                 CTX.JediniceMjere.Remove(CTX.JediniceMjere.Where(x => x.Id == id).FirstOrDefault());
-
                 CTX.SaveChanges();
             }
-            catch (Exception B)
+            catch (Exception)
             {
-                return View("../../Views/Common/ErrDelView");
+               return RedirectToAction("../../Common/DelMsg");
             }
-            return RedirectToAction("Index");
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
     }
 }

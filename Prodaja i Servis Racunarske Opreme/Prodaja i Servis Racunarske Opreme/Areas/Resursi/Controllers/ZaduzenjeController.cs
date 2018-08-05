@@ -67,12 +67,18 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
 
         public ActionResult Brisanje_Z(int id)
         {
+            try
+            {
+                CTX.Zaduzenja.Remove(CTX.Zaduzenja.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.Zaduzenja.Remove(CTX.Zaduzenja.Where(x => x.Id == id).FirstOrDefault());
+                CTX.SaveChanges();
 
-            CTX.SaveChanges();
-
-            return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("../../Common/DelMsg");
+            }
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
     }
 }

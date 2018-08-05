@@ -96,12 +96,18 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_G(int id)
         {
+            try
+            {
+                CTX.Gradovi.Remove(CTX.Gradovi.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.Gradovi.Remove(CTX.Gradovi.Where(x => x.Id == id).FirstOrDefault());
+                CTX.SaveChanges();
 
-            CTX.SaveChanges();
-
-            return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("../../Common/DelMsg");
+            }
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 IdDobavljaca = x.Id,
                 Naziv = x.Naziv
             }));
-    
+
             return View(Model);
         }
         [Pristup(Ovlasti = "Administrator")]
@@ -97,12 +97,18 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_D(int id)
         {
+            try
+            {
+                CTX.Dobavljaci.Remove(CTX.Dobavljaci.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.Dobavljaci.Remove(CTX.Dobavljaci.Where(x => x.Id == id).FirstOrDefault());
+                CTX.SaveChanges();
 
-            CTX.SaveChanges();
-
-            return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("../../Common/DelMsg");
+            }
+            return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
     }
 }
