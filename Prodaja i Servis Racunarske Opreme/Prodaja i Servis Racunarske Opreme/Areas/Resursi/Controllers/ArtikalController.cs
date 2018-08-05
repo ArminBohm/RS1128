@@ -126,11 +126,17 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
         [Pristup(Ovlasti = "Administrator")]
         public ActionResult Brisanje_A(int id)
         {
+            try
+            {
+                CTX.Artikli.Remove(CTX.Artikli.Where(x => x.Id == id).FirstOrDefault());
+                CTX.SaveChanges();
+            }
+            catch (Exception B) {
+                return View("~/Views/Common/ErrDelView");
+            }
 
-            CTX.Artikli.Remove(CTX.Artikli.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.SaveChanges();
-
+            
             return RedirectToAction("Index");
         }
     }

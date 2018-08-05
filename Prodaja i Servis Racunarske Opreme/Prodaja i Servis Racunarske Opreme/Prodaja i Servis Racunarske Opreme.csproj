@@ -327,6 +327,7 @@
     <Content Include="Views\Common\PopUpModal.cshtml" />
     <Content Include="Views\Common\AutErrView.cshtml" />
     <Content Include="Views\Common\EmptyView.cshtml" />
+    <Content Include="Views\Common\ErrDelView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
