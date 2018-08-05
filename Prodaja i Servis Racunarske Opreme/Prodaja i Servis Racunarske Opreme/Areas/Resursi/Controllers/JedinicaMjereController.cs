@@ -38,13 +38,13 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             }
             foreach (JedinicaMjere JM in CTX.JediniceMjere)
             {
-                if(JM.Naziv == Nova_JM.Naziv)
+                if (JM.Naziv == Nova_JM.Naziv)
                 {
                     Pronadjeno = true;
                 }
             }
 
-            if(Pronadjeno == false)
+            if (Pronadjeno == false)
             {
                 CTX.JediniceMjere.Add(Nova_JM);
                 CTX.SaveChanges();
@@ -60,7 +60,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             return View("Edituj_JM", Model);
         }
         [Pristup(Ovlasti = "Administrator")]
-        public ActionResult SpasiIzmjenu_JM (JedinicaMjere Podaci)
+        public ActionResult SpasiIzmjenu_JM(JedinicaMjere Podaci)
         {
             JedinicaMjere Izmjenuti = CTX.JediniceMjere.Where(x => x.Id == Podaci.Id).FirstOrDefault();
             if (!ModelState.IsValid)
@@ -74,13 +74,18 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             return JavaScript("window.location = '" + Url.Action("Index") + "'");
         }
         [Pristup(Ovlasti = "Administrator")]
-        public ActionResult Brisanje_JM (int id)
+        public ActionResult Brisanje_JM(int id)
         {
+            try
+            {
+                CTX.JediniceMjere.Remove(CTX.JediniceMjere.Where(x => x.Id == id).FirstOrDefault());
 
-            CTX.JediniceMjere.Remove(CTX.JediniceMjere.Where(x => x.Id == id).FirstOrDefault());
-
-            CTX.SaveChanges();
-
+                CTX.SaveChanges();
+            }
+            catch (Exception B)
+            {
+                return View("../../Views/Common/ErrDelView");
+            }
             return RedirectToAction("Index");
         }
     }

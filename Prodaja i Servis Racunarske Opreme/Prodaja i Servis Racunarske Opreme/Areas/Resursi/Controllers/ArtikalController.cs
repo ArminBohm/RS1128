@@ -131,12 +131,13 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.Artikli.Remove(CTX.Artikli.Where(x => x.Id == id).FirstOrDefault());
                 CTX.SaveChanges();
             }
-            catch (Exception B) {
+            catch (Exception B)
+            {
                 return View("~/Views/Common/ErrDelView");
             }
 
 
-            
+
             return RedirectToAction("Index");
         }
     }
