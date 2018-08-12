@@ -14,8 +14,15 @@
                         @using (Ajax.BeginForm("Spasi_A", "Artikal", new AjaxOptions { UpdateTargetId = "AjaxDiv" }))
                         {
                             @Html.AntiForgeryToken()
+                        <div>
+                            <button class="btn btn-danger" style="position:absolute; right:15px;" id="dugmic" onclick="window.location.href='/Resursi/Artikal/Index'" >X</button>
+                        </div>
+                        <br />
                             <h2 style="text-align:center">Dodavanje Artikla</h2>
-                            <div class="form-horizontal">
+
+                        
+                        
+                                <div class="form-horizontal">
                                 @Html.HiddenFor(model => Model.IdArtikla)
                                 <table align="center" style="outline:dotted; outline-color:green">
                                     <tr>
@@ -99,3 +106,8 @@
         </div>
     </div>
 </div>
+<script>
+    $("#dugmic").click(function (e) {
+        $("#MojInfoScr").hide();
+    });
+</script>
