@@ -146,7 +146,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 Podaci.LGrad = CTX.Gradovi.ToList();
                 Podaci.PocetakRadnogOdnosa = Podaci.PocetakRadnogOdnosa;
                 Podaci.LSP = CTX.StrucneSpreme.ToList();
-                Podaci.LZaduzenje = CTX.Zaduzenja.ToList();
+                Podaci.LZaduzenje = CTX.Zaduzenja.ToList(); 
 
                 return View("Edituj_Z", Podaci);
             }
