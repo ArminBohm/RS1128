@@ -2,49 +2,71 @@
 
 @{
     ViewBag.Title = "Edituj_Z";
+    Layout = null;
 }
+<style>
+    body {
+        background-color: transparent;
+    }
+</style>
+<div id="MojInfoScr">
+    <div class="modal show" role="dialog">
+        <div role="dialog">
+            <div class="modal-dialog" style="width: 500px;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <a id="Potvrda" class="btn btn-danger" style="display:inline-block; position:absolute; right:25px; top:25px">X</a>
+                        @using (Ajax.BeginForm("SpasiIzmjenu_Z", "Zaduzenje", new AjaxOptions { UpdateTargetId = "AjaxDiv" }))
+                        {
+                            @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("SpasiIzmjenu_Z", "Zaduzenje"))
-{
-    @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+                                <h2 style="text-align:center">Eitovanje Zaduzenje</h2>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.Id)
 
-    <div class="form-horizontal">
-        <h2 style="text-align:center">Eitovanje Zaduzenje</h2>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+                                <table align="center" style="outline:dotted; outline-color:green">
+                                    <tr>
+                                        <td>
+                                            <div class="form-group" align="center">
+                                                @Html.LabelFor(model => model.Naziv, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Naziv, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Naziv, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
 
-        <table align="center" style="outline:dotted; outline-color:green">
-            <tr>
-                <td>
-                    <div class="form-group" align="center">
-                        @Html.LabelFor(model => model.Naziv, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-12">
-                            @Html.EditorFor(model => model.Naziv, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Naziv, "", new { @class = "text-danger" })
-                        </div>
+                                    <tr style="height:100px">
+                                        <td colspan="3" align="right" style="padding:48px 0px 0px 0px">
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" value="Izmjeni" class="btn btn-success" style="width:125px" />
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                        }
+
                     </div>
-                </td>
-            </tr>
-
-            <tr style="height:100px">
-                <td colspan="3" align="right" style="padding:48px 0px 0px 0px">
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Izmjeni" class="btn btn-success" style="width:125px" />
-                        </div>
-                    </div>
-                </td>
-
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(function () {
+        $('#Potvrda').click(function () {
+            $('#MojInfoScr').hide();
+        });
+    });
+</script>

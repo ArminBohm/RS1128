@@ -134,6 +134,8 @@
     <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bgd0.jpg" />
+    <Content Include="Images\bgd1.jpg" />
     <Content Include="Images\computer-repair.png" />
     <Content Include="Images\hmbgicon.png" />
     <Content Include="Images\menu_bg.jpg" />
