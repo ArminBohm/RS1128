@@ -4,8 +4,12 @@
     ViewBag.Title = "Dodavanje_K";
     Layout = null;
 }
+<style>
+    body {
+        background-color: transparent;
+    }
+</style>
 
-<h2 style="text-align:center">Dodavanje Korisnika</h2>
 
 <div id="MojInfoScr">
     <div class="modal show" role="dialog">
@@ -13,6 +17,7 @@
             <div class="modal-dialog" style="width: 800px;">
                 <div class="modal-content">
                     <div class="modal-body">
+                        <a id="Potvrda" class="btn btn-danger" style="display:inline-block; position:absolute; right:25px; top:25px">X</a>
                         @using (Ajax.BeginForm("Spasi_K", "Korisnik", new AjaxOptions { UpdateTargetId = "AjaxDiv" }))
                         {
 
@@ -21,7 +26,7 @@
                             @Html.HiddenFor(model => Model.DatumRegistracije)
 
                             <table align="center" style="outline:dotted; outline-color:green">
-                                <tr align="left"  style="height:75px">
+                                <tr align="left" style="height:75px">
                                     <td>
                                         <div class="form-group" style="text-align:center">
                                             Ime
@@ -40,7 +45,7 @@
                                     </td>
                                     <td></td>
                                 </tr>
-                                <tr  style="height:75px">
+                                <tr style="height:75px">
                                     <td>
                                         <div class="form-group" style="text-align:center;">
                                             Adresa
@@ -67,7 +72,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr align="left"  style="height:75px">
+                                <tr align="left" style="height:75px">
                                     <td>
                                         <div class="form-group" style="text-align:center">
                                             UserName
@@ -121,3 +126,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $('#Potvrda').click(function () {
+            $('#MojInfoScr').hide();
+        });
+    });
+</script>

@@ -5,7 +5,11 @@
     Layout = null; 
 }
 
-
+<style>
+    body {
+        background-color: transparent;
+    }
+</style>
 
 <div id="MojInfoScr">
     <div class="modal show" role="dialog">
@@ -13,141 +17,142 @@
             <div class="modal-dialog" style="width: 800px;">
                 <div class="modal-content">
                     <div class="modal-body">
+                        <a id="Potvrda" class="btn btn-danger" style="display:inline-block; position:absolute; right:25px; top:25px">X</a>
                         @using (Ajax.BeginForm("SpasiIzmjenu_Z", "Zaposlenik", new AjaxOptions { UpdateTargetId = "AjaxDiv" }))
                         {
                             @Html.AntiForgeryToken()
 
-                        <div class="form-horizontal">
-                            <hr />
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-horizontal">
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                            @Html.HiddenFor(model => Model.id)
-                            @Html.HiddenFor(model => Model.PocetakRadnogOdnosa)
-                            @Html.HiddenFor(model => Model.UserName)
-                            <h2 align="center">Editovanje Zaposlenika</h2>
-                            <table align="center" style="outline:dotted; outline-color:green">
-                                <tr align="left" style="height:75px;">
-                                    <td>
-                                        <div class="form-group" style="text-align:center">
-                                            Ime
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Ime, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.HiddenFor(model => Model.id)
+                                @Html.HiddenFor(model => Model.PocetakRadnogOdnosa)
+                                @Html.HiddenFor(model => Model.UserName)
+                                <h2 align="center">Editovanje Zaposlenika</h2>
+                                <table align="center" style="outline:dotted; outline-color:green">
+                                    <tr align="left" style="height:75px;">
+                                        <td>
+                                            <div class="form-group" style="text-align:center">
+                                                Ime
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Ime, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group" style="display:inline-block; text-align:center">
-                                            Prezime
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Prezime, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                        <td>
+                                            <div class="form-group" style="display:inline-block; text-align:center">
+                                                Prezime
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Prezime, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td></td>
-                                <tr align="left" style="height:75px;">
-                                    <td>
-                                        <div class="form-group" style="text-align:center; width:260px;">
-                                            Pocetak Radnog Odnosa
-                                            <div class="col-md-12" style="text-decoration:b">
-                                                <b> @Html.DisplayFor(model => model.PocetakRadnogOdnosa, new { htmlAttributes = new { @class = "form-control" } })</b>
+                                        </td>
+                                        <td></td>
+                                    <tr align="left" style="height:75px;">
+                                        <td>
+                                            <div class="form-group" style="text-align:center; width:260px;">
+                                                Pocetak Radnog Odnosa
+                                                <div class="col-md-12" style="text-decoration:b">
+                                                    <b> @Html.DisplayFor(model => model.PocetakRadnogOdnosa, new { htmlAttributes = new { @class = "form-control" } })</b>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group" style="text-align:center; width:260px;">
-                                            Kraj Radnog Odnosa
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.ZavrsetakRadnogOdnosa, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                        <td>
+                                            <div class="form-group" style="text-align:center; width:260px;">
+                                                Kraj Radnog Odnosa
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.ZavrsetakRadnogOdnosa, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr align="left" style="height:75px;">
-                                    <td>
-                                        <div class="form-group" style="text-align:center;">
-                                            Adresa
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Adresa, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr align="left" style="height:75px;">
+                                        <td>
+                                            <div class="form-group" style="text-align:center;">
+                                                Adresa
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Adresa, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group" style="text-align:center;">
-                                            E-mail
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                        <td>
+                                            <div class="form-group" style="text-align:center;">
+                                                E-mail
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group" style="text-align:center;">
-                                            Broj Telefona
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.BrojTelefona, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                        <td>
+                                            <div class="form-group" style="text-align:center;">
+                                                Broj Telefona
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.BrojTelefona, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr align="left" style="height:75px;">
-                                    <td>
-                                        <div class="form-group" style="text-align:center;">
-                                            Password
-                                            <div class="col-md-12">
-                                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr align="left" style="height:75px;">
+                                        <td>
+                                            <div class="form-group" style="text-align:center;">
+                                                Password
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr align="left" style="height:75px;">
-                                    <td>
-                                        <div class="form-group" style="text-align:center;">
-                                            Grad
-                                            <div class="col-md-15">
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr align="left" style="height:75px;">
+                                        <td>
+                                            <div class="form-group" style="text-align:center;">
+                                                Grad
+                                                <div class="col-md-15">
 
-                                                @Html.DropDownListFor(model => model.GradId, Model.DDLG, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.DropDownListFor(model => model.GradId, Model.DDLG, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group" style="text-align:center;">
-                                            Strucna Sprema
-                                            <div class="col-md-15">
+                                        </td>
+                                        <td>
+                                            <div class="form-group" style="text-align:center;">
+                                                Strucna Sprema
+                                                <div class="col-md-15">
 
-                                                @Html.DropDownListFor(model => model.LSPId, Model.DDLSP, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.DropDownListFor(model => model.LSPId, Model.DDLSP, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group" style="text-align:center;">
-                                            Zaduzenje
-                                            <div class="col-md-15">
+                                        </td>
+                                        <td>
+                                            <div class="form-group" style="text-align:center;">
+                                                Zaduzenje
+                                                <div class="col-md-15">
 
-                                                @Html.DropDownListFor(model => model.LZaduzenjeId, Model.DDLZ, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.DropDownListFor(model => model.LZaduzenjeId, Model.DDLZ, new { htmlAttributes = new { @class = "form-control" } })
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
 
-                                <tr style="height:100px">
-                                    <td colspan="2">
-                                        <div style="color:red;">
-                                            @Html.ValidationSummary()
-                                        </div>
-                                    </td>
-                                    <td align="right" style="padding:48px 0px 0px 0px">
-                                        <div class="form-group">
-                                            <div class="col-md-offset-2 col-md-10">
-                                                <input type="submit" value="Spasi" class="btn btn-success" style="width:125px" />
+                                    <tr style="height:100px">
+                                        <td colspan="2">
+                                            <div style="color:red;">
+                                                @Html.ValidationSummary()
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td align="right" style="padding:48px 0px 0px 0px">
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" value="Spasi" class="btn btn-success" style="width:125px" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                            </table>
-                        </div>
+                                </table>
+                            </div>
                         }
 
                     </div>
@@ -156,3 +161,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $('#Potvrda').click(function () {
+            $('#MojInfoScr').hide();
+        });
+    });
+</script>

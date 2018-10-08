@@ -3,7 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<style>
+    body {
+        background-color: transparent;
+    }
+</style>
 <h2>Index</h2>
 
 <table class="table">
@@ -23,7 +27,7 @@
                 @Html.DisplayFor(modelItem => item.Naziv)
             </td>
             <td>
-                @Html.ActionLink("Edituj", "Edituj_Z", new { id = item.Id }) |
+                @Ajax.ActionLink("Edituj", "Edituj_Z", new { id = item.Id }, new AjaxOptions { UpdateTargetId = "AjaxDiv" })
                 @Html.ActionLink("Brisanje", "Brisanje_Z", new { id = item.Id })
             </td>
         </tr>
@@ -32,5 +36,7 @@
 </table>
 
 <p>
-    @Html.ActionLink("Novo Zaduzenje", "Dodaj_Z")
+    @Ajax.ActionLink("Novo Zaduzenje", "Dodaj_Z", new AjaxOptions { UpdateTargetId = "AjaxDiv" })
 </p>
+
+<div id="AjaxDiv"></div>

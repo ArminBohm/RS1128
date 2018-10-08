@@ -29,20 +29,20 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
         {
             Osoba Loged = new Osoba();
             Loged = CTX.Osobe.Where(x => x.UserName == UserName && x.Password == password).FirstOrDefault();
+
+
+            if(Loged == null)
+            {
+                return RedirectToAction("Index", new { UN = UserName, Pass = "", Msg = " Ovaj korisnik ne postoji ili ste unjeli pogresnu lozinku " });
+            }
+
             LogiraniSes LS = new LogiraniSes();
             Session["Logirani"] = null;
-
 
             LS.LogiraniId = Loged.Id;
             LS.Ime_Prezime = Loged.Ime + " " + Loged.Prezime;
             LS.UserName = Loged.UserName;
           
-
-            if(Loged == null)
-            {
-                return RedirectToAction("Index", new { UN = UserName, Pass = "", Msg = " Ovaj user ne postoji ili ste unjeli pogresan password " });
-            }
-            
             if (CTX.Zaposlenici.Find(Loged.Id)!=null)
             {
                 LS.Korisnik = false;
@@ -55,7 +55,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
 
                 if(LS.StatusKorisnika == false)
                 {
-                    return RedirectToAction("Index", new { UN = UserName, Pass = "", Msg = " Vas User jos nije aktivan " });
+                    return RedirectToAction("Index", new { UN = UserName, Pass = "", Msg = " Vas korisnik jos nije aktivan " });
                 }
 
             }

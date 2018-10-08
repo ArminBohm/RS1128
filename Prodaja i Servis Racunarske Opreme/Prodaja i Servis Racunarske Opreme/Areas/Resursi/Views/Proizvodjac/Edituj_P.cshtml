@@ -3,13 +3,18 @@
 @{
     ViewBag.Title = "Edituj_P";
     Layout = null;
-}
+}<style>
+    body {
+        background-color: transparent;
+    }
+</style>
 <div id="MojInfoScr">
     <div class="modal show" role="dialog">
         <div role="dialog">
             <div class="modal-dialog" style="width: 550px;">
                 <div class="modal-content">
                     <div class="modal-body">
+                        <a id="Potvrda" class="btn btn-danger" style="display:inline-block; position:absolute; right:25px; top:25px">X</a>
                         @using (Ajax.BeginForm("SpasiIzmjenu_P", "Proizvodjac", new AjaxOptions { UpdateTargetId = "AjaxDiv" }))
                         {
                             @Html.AntiForgeryToken()
@@ -56,3 +61,10 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(function () {
+        $('#Potvrda').click(function () {
+            $('#MojInfoScr').hide();
+        });
+    });
+</script>
