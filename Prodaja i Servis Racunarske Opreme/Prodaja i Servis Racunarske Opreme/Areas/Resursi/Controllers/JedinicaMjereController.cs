@@ -83,9 +83,10 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             }
             catch (Exception)
             {
-               return RedirectToAction("../../Common/DelMsg");
+                return RedirectToAction("../../Common/DelMsg");
             }
-            return JavaScript("window.location = '" + Url.Action("Index") + "'");
+            return RedirectToAction("Index");
         }
+
     }
 }

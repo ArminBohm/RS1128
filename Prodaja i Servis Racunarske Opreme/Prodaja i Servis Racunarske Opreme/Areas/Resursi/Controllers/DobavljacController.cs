@@ -100,15 +100,13 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             try
             {
                 CTX.Dobavljaci.Remove(CTX.Dobavljaci.Where(x => x.Id == id).FirstOrDefault());
-
                 CTX.SaveChanges();
-
             }
-            catch (Exception)
+            catch (Exception B)
             {
                 return RedirectToAction("../../Common/DelMsg");
             }
-            return JavaScript("window.location = '" + Url.Action("Index") + "'");
+            return RedirectToAction("Index");
         }
     }
 }

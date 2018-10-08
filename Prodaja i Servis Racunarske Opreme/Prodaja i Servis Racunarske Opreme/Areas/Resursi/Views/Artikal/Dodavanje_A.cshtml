@@ -4,19 +4,21 @@
     ViewBag.Title = "Dodavanje_A";
     Layout = null;
 }
+<style>
+    body {
+        background-color: transparent;
+    }
+</style>
 <div id="MojInfoScr">
     <div class="modal show" role="dialog">
         <div role="dialog">
             <div class="modal-dialog" style="width: 800px;">
                 <div class="modal-content">
                     <div class="modal-body">
-
+                        <a id="Potvrda" class="btn btn-danger" style="display:inline-block; position:absolute; right:25px; top:25px">X</a>
                         @using (Ajax.BeginForm("Spasi_A", "Artikal", new AjaxOptions { UpdateTargetId = "AjaxDiv" }))
                         {
                             @Html.AntiForgeryToken()
-                        <div>
-                            <button class="btn btn-danger" style="position:absolute; right:15px;" id="dugmic" onclick="window.location.href='/Resursi/Artikal/Index'" >X</button>
-                        </div>
                         <br />
                             <h2 style="text-align:center">Dodavanje Artikla</h2>
 
@@ -106,8 +108,11 @@
         </div>
     </div>
 </div>
+
 <script>
-    $("#dugmic").click(function (e) {
-        $("#MojInfoScr").hide();
+    $(function () {
+        $('#Potvrda').click(function () {
+            $('#MojInfoScr').hide();
+        });
     });
 </script>
