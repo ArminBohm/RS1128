@@ -160,11 +160,12 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
                 CTX.SaveChanges();
 
             }
-            catch (Exception)
+            catch (Exception B)
             {
                 return RedirectToAction("../../Common/DelMsg");
             }
-            return JavaScript("window.location = '" + Url.Action("Index") + "'");
+            return RedirectToAction("Index");
+
         }
     }
 }
