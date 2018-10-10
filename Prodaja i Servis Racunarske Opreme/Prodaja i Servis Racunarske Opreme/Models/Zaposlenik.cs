@@ -9,7 +9,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Models
     {
         public int Id { get; set; }
         public DateTime PocetakRadnogOdnosa { get; set; }
-        public DateTime ZavrsetakRadnogOdnosa { get; set; }
+        public DateTime? ZavrsetakRadnogOdnosa { get; set; }
 
         public virtual StrucnaSprema StrucnaSprema { get; set; }
         public int StrucnaSpremaId { get; set; }

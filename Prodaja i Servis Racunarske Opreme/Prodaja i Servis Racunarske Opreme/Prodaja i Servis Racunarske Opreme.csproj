@@ -271,7 +271,6 @@
     <Compile Include="Helper\CommonController.cs" />
     <Compile Include="Helper\LogiraniSes.cs" />
     <Compile Include="Helper\MyGlobal.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artikal.cs" />
     <Compile Include="Models\Dobavljac.cs" />
     <Compile Include="Models\EvidencijaDostave.cs" />

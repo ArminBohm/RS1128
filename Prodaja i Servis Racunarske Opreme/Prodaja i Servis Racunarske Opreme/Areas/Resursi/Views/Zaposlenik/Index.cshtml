@@ -59,7 +59,7 @@
         </td>
         <td>
             @Ajax.ActionLink("Eituj", "Edituj_Z", new { id = item.id }, new AjaxOptions { UpdateTargetId = "AjaxDiv" }) |
-            @Ajax.ActionLink("Brisanje", "Brisanje_Z", new { id = item.id }, new AjaxOptions { UpdateTargetId = "AjaxDiv" })
+            @Html.ActionLink("Brisanje", "Brisanje_Z", new { id = item.id })
         </td>
     </tr>
     }
