@@ -271,54 +271,6 @@
     <Compile Include="Helper\CommonController.cs" />
     <Compile Include="Helper\LogiraniSes.cs" />
     <Compile Include="Helper\MyGlobal.cs" />
-    <Compile Include="Migrations\201806262210360_InitialCreate.cs" />
-    <Compile Include="Migrations\201806262210360_InitialCreate.Designer.cs">
-      <DependentUpon>201806262210360_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806262214169_MiG28.cs" />
-    <Compile Include="Migrations\201806262214169_MiG28.Designer.cs">
-      <DependentUpon>201806262214169_MiG28.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807091947413_MiG29.cs" />
-    <Compile Include="Migrations\201807091947413_MiG29.Designer.cs">
-      <DependentUpon>201807091947413_MiG29.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807092035489_MiG31.cs" />
-    <Compile Include="Migrations\201807092035489_MiG31.Designer.cs">
-      <DependentUpon>201807092035489_MiG31.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807122110087_MiG32.cs" />
-    <Compile Include="Migrations\201807122110087_MiG32.Designer.cs">
-      <DependentUpon>201807122110087_MiG32.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807302030328_M1.cs" />
-    <Compile Include="Migrations\201807302030328_M1.Designer.cs">
-      <DependentUpon>201807302030328_M1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807302049460_M2.cs" />
-    <Compile Include="Migrations\201807302049460_M2.Designer.cs">
-      <DependentUpon>201807302049460_M2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807312039478_M21.cs" />
-    <Compile Include="Migrations\201807312039478_M21.Designer.cs">
-      <DependentUpon>201807312039478_M21.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807312056553_M3.cs" />
-    <Compile Include="Migrations\201807312056553_M3.Designer.cs">
-      <DependentUpon>201807312056553_M3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807312141493_M4.cs" />
-    <Compile Include="Migrations\201807312141493_M4.Designer.cs">
-      <DependentUpon>201807312141493_M4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808011920196_M5.cs" />
-    <Compile Include="Migrations\201808011920196_M5.Designer.cs">
-      <DependentUpon>201808011920196_M5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808042043599_M10.cs" />
-    <Compile Include="Migrations\201808042043599_M10.Designer.cs">
-      <DependentUpon>201808042043599_M10.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Artikal.cs" />
     <Compile Include="Models\Dobavljac.cs" />
@@ -382,42 +334,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Areas\Resursi\Reports\Artikli_Rep.rdlc" />
-    <EmbeddedResource Include="Migrations\201806262210360_InitialCreate.resx">
-      <DependentUpon>201806262210360_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806262214169_MiG28.resx">
-      <DependentUpon>201806262214169_MiG28.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807091947413_MiG29.resx">
-      <DependentUpon>201807091947413_MiG29.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807092035489_MiG31.resx">
-      <DependentUpon>201807092035489_MiG31.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807122110087_MiG32.resx">
-      <DependentUpon>201807122110087_MiG32.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807302030328_M1.resx">
-      <DependentUpon>201807302030328_M1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807302049460_M2.resx">
-      <DependentUpon>201807302049460_M2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807312039478_M21.resx">
-      <DependentUpon>201807312039478_M21.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807312056553_M3.resx">
-      <DependentUpon>201807312056553_M3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807312141493_M4.resx">
-      <DependentUpon>201807312141493_M4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808011920196_M5.resx">
-      <DependentUpon>201808011920196_M5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808042043599_M10.resx">
-      <DependentUpon>201808042043599_M10.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

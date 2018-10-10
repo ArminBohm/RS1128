@@ -10,7 +10,6 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Prodaja_i_Servis_Racunarske_Opreme.DAL.MyContext";
         }
 
         protected override void Seed(Prodaja_i_Servis_Racunarske_Opreme.DAL.MyContext context)
