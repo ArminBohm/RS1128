@@ -12,7 +12,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Models
     {
         public int id { get; set; }
         public DateTime PocetakRadnogOdnosa { get; set; }
-        public DateTime ZavrsetakRadnogOdnosa { get; set; }
+        public DateTime? ZavrsetakRadnogOdnosa { get; set; }
 
         [Required(ErrorMessage = "Potrebno unjeti ime")]
         public string Ime { get; set; }

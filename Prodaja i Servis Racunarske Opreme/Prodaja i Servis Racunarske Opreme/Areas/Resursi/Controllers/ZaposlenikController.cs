@@ -55,7 +55,6 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Areas.Resursi.Controllers
             Model.LZaduzenje = CTX.Zaduzenja.ToList();
 
             Model.PocetakRadnogOdnosa = DateTime.Now;
-            Model.ZavrsetakRadnogOdnosa = DateTime.Now;
 
             return View("Dodavanje_Z", Model);
         }
