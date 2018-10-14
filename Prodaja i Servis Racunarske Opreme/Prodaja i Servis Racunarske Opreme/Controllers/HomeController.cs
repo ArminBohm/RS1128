@@ -11,12 +11,12 @@ using System.Web.Security;
 
 namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
 {
-    [AllowAnonymous]
+
     public class HomeController : Controller
     {
         MyContext CTX = new MyContext();
         // GET: Home
-
+        [AllowAnonymous]
         public ActionResult Index(string UN = "", string Pass="", string Msg="")
         {
             ViewBag.UName = UN;
@@ -25,6 +25,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
             
             return View("LoginForma");
         }
+        [AllowAnonymous]
         public ActionResult chkLogin(string UserName, string password)
         {
             Osoba Loged = new Osoba();
@@ -70,6 +71,7 @@ namespace Prodaja_i_Servis_Racunarske_Opreme.Controllers
             Session["Logirani"] = null;
 
             FormsAuthentication.SignOut();
+
 
             return RedirectToAction("Index");
         }

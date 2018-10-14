@@ -85,6 +85,7 @@
                 </div>
                 <div id="Second" style="text-align:center;">
                     <label style="color:blue;">Loged:@User </label>
+                    @Html.ActionLink("Odjava", "LogOff", "Home", new { area = "" },null)
                 </div>
             </div>
             @RenderBody()
@@ -94,7 +95,6 @@
     <!-- /#wrapper -->
 </body>
 </html>
-
 <!-- Bootstrap core JavaScript -->
 <script src="~/Scripts/modernizr-2.6.2.js"></script>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
